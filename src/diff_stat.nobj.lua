@@ -1,8 +1,8 @@
 -- Copyright (c) 2010-2012 by Robert G. Jakabosky <bobby@sharedrealm.com>
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a copy
--- of this software and associated documentation files (the "Software"), to deal
--- in the Software without restriction, including without limitation the rights
+-- of this software and associated documentatsion files (the "Software"), to deal
+-- in the Software without restriction, including without limitatsion the rights
 -- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 -- copies of the Software, and to permit persons to whom the Software is
 -- furnished to do so, subject to the following conditions:
@@ -18,29 +18,27 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "DiffStats" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_diff_stats DiffStats;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constants {
+		NONE = 0,
+		FULL = 1,
+		SHORT = 2,
+		NUMBER = 4,
+		INCLUDE_SUMMARY = 8,
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	constructor "get" {
+		c_call { "GitError", "err" } "git_diff_get_stats" { "DiffStats *", "&this>1", "Diff *", "diff" },
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
+	method "insertions" {
+		c_method_call { "size_t", "size" } "git_diff_stats_insertions" {},
 	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
+	method "deletions" {
+		c_method_call { "size_t", "size" } "git_diff_stats_deletions" {},
 	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
-	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
+	method "files_changed" {
+		c_method_call { "size_t", "size" } "git_diff_stats_files_changed" {},
 	},
 }
-

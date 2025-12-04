@@ -18,29 +18,17 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "StatusList" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_status_list StatusList;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constructor "new" {
+		c_call { "GitError", "err" } "git_status_list_new" { "StatusList *", "&this>1", "Repository *", "repo", "const StatusOptions *", "opts" },
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	destructor {
+		c_method_call "void" "git_status_list_free" {}
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
-	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
-	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
-	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
+	method "entrycount" {
+		c_method_call { "size_t", "count" } "git_status_list_entrycount" {},
 	},
 }
-

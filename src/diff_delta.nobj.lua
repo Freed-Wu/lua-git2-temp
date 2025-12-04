@@ -18,29 +18,40 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "DiffDelta" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_diff_delta DiffDelta;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constants {
+		UNMODIFIED = 0,
+		ADDED = 1,
+		DELETED = 2,
+		MODIFIED = 3,
+		RENAMED = 4,
+		COPIED = 5,
+		IGNORED = 6,
+		UNTRACKED = 7,
+		TYPECHANGE = 8,
+		UNREADABLE = 9,
+		CONFLICTED = 10,
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	constructor "get" {
+		c_call "const DiffDelta *>1" "git_diff_get_delta" { "Diff *", "diff", "size_t", "idx" },
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
+	field "unsigned int" "status",
+	field "uint32_t" "flags",
+	field "uint16_t" "similarity",
+	field "uint16_t" "nfiles",
+	method "old_file" {
+		var_out { "DiffFile *", "old_file" },
+		c_source [[
+		${old_file} = &${this}->old_file;
+]],
 	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
-	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
-	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
+	method "new_file" {
+		var_out { "DiffFile *", "new_file" },
+		c_source [[
+		${new_file} = &${this}->new_file;
+]],
 	},
 }
-

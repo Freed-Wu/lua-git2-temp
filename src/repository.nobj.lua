@@ -49,6 +49,9 @@ typedef git_repository Repository;
 	method "head_detached" {
 		c_method_call "bool" "git_repository_head_detached" {}
 	},
+	method "set_head_detached" {
+		c_method_call { "GitError", "err" } "git_repository_set_head_detached" { "OID *", "committish"}
+	},
 	method "head_unborn" {
 		c_method_call "bool" "git_repository_head_unborn" {}
 	},
@@ -87,6 +90,15 @@ typedef git_repository Repository;
 	},
 	method "set_index" {
 		c_method_call "void" "git_repository_set_index" { "Index *", "index"}
+	},
+	method "checkout_tree" {
+		c_method_call { "GitError", "err" } "git_checkout_tree" { "const Object *", "treeish", "const CheckoutOptions *", "opts"}
+	},
+	method "checkout_head" {
+		c_method_call { "GitError", "err" } "git_checkout_head" { "const CheckoutOptions *", "opts"}
+	},
+	method "checkout_index" {
+		c_method_call { "GitError", "err" } "git_checkout_index" { "Index *", "index", "const CheckoutOptions *", "opts"}
 	},
 }
 

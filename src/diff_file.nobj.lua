@@ -18,29 +18,30 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "DiffFile" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_diff_file DiffFile;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constants {
+		BINARY = 1,
+		NOT_BINARY = 2,
+		VALID_ID = 4,
+		EXISTS = 8,
+		VALID_SIZE = 16,
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	destructor {
+		c_source [[
+	if(${this}->path != NULL) {
+		free((void *)${this}->path);
+		${this}->path = NULL;
+	}
+	free(${this});
+]]
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
-	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
-	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
-	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
-	},
+	field "OID" "id",
+	field "const char *" "path",
+	field "uint64_t" "size",
+	field "uint32_t" "flags",
+	field "uint16_t" "mode",
+	field "uint16_t" "id_abbrev",
 }
-
