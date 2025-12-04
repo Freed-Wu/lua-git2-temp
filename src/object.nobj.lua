@@ -33,6 +33,9 @@ typedef git_object Object;
 		GIT_OBJ_TAG = "Tag",
 		},
 	},
+	constructor "revparse_single" {
+		c_call { "GitError", "err" } "git_revparse_single" { "Object *", "&this>1", "Repository *", "repo", "const char *", "spec" }
+	},
 	destructor "free" {
 		c_method_call "void" "git_object_free" {}
 	},

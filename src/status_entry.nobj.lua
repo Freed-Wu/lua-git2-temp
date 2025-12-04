@@ -18,29 +18,30 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "StatusEntry" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_status_entry StatusEntry;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constants {
+		CURRENT = 0,
+		INDEX_NEW = 1,
+		INDEX_MODIFIED = 2,
+		INDEX_DELETED = 4,
+		INDEX_RENAMED = 8,
+		INDEX_TYPECHANGE = 16,
+		WT_NEW = 128,
+		WT_MODIFIED = 256,
+		WT_DELETED = 512,
+		WT_TYPECHANGE = 1024,
+		WT_RENAMED = 2048,
+		WT_UNREADABLE = 4096,
+		IGNORED = 16384,
+		CONFLICTED = 32768,
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	constructor "byindex" {
+		c_call "StatusEntry *>1" "git_status_byindex" { "StatusList *", "statuslist", "size_t", "idx" },
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
-	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
-	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
-	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
-	},
+	field "unsigned int" "status",
+	field "DiffDelta *" "head_to_index",
+	field "DiffDelta *" "index_to_workdir",
 }
-

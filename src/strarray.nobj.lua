@@ -24,17 +24,18 @@ object "StrArray" {
 typedef git_strarray StrArray;
 ]],
 	constructor "new" {
+		var_in{ "size_t", "n" },
 		c_source[[
 	StrArray array;
-	array.strings = NULL;
-	array.count = 0;
+	array.strings = (char **)calloc(${n}, sizeof(char *));
+	array.count = ${n};
 	${this} = &array;
 ]]
 	},
 	destructor "free" {
 		c_source[[
 	if(${this}->strings != 0) {
-		git_strarray_free(${this});
+		git_strarray_dispose(${this});
 		${this}->strings = NULL;
 	}
 ]]
@@ -46,6 +47,18 @@ typedef git_strarray StrArray;
 		c_source[[
 	if(${n} < ${this}->count) {
 		${str} = ${this}->strings[${n}];
+	}
+]],
+	},
+	method "set_str" {
+		var_in{ "size_t", "n" },
+		var_in{ "const char *", "str" },
+		c_source[[
+	if(${n} < ${this}->count) {
+		if(${this}->strings[${n}] != NULL) {
+			free(${this}->strings[${n}]);
+		}
+		${this}->strings[${n}] = strdup(${str});
 	}
 ]],
 	},

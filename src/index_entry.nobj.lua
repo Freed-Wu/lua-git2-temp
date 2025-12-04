@@ -80,10 +80,22 @@ typedef git_index_entry IndexEntry;
 	field "unsigned int" "dev",
 	field "unsigned int" "ino",
 	field "unsigned int" "mode",
+	method "set_mode" {
+		var_in{ "unsigned int", "mode" },
+		c_source [[
+		${this}->mode = ${mode};
+]]
+	},
 	field "unsigned int" "uid",
 	field "unsigned int" "gid",
 	field "off_t" "file_size",
 	field "OID" "id",
+	method "set_id" {
+		var_in{ "OID", "id" },
+		c_source [[
+	git_oid_cpy(&${this}->id, &${id});
+]]
+	},
 	field "unsigned int" "flags",
 	field "unsigned int" "flags_extended",
 	method "path" {

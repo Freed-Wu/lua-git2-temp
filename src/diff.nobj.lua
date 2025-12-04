@@ -18,29 +18,29 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "TreeEntry" {
+object "Diff" {
 	c_source [[
-typedef git_tree_entry TreeEntry;
+typedef git_diff Diff;
 ]],
-	constructor "bypath" {
-		c_call { "GitError", "err" } "git_tree_entry_bypath" { "const TreeEntry *", "&this>1", "const Tree *", "tree", "const char *", "path" }
+	constructor "index_to_workdir" {
+		c_call { "GitError", "err" } "git_diff_index_to_workdir" { "Diff *", "&this>1", "Repository *", "repo", "Index *", "index", "DiffOptions *", "opts" },
 	},
-	destructor "free" {
-		c_method_call "void" "git_tree_entry_free" {}
+	constructor "tree_to_index" {
+		c_call { "GitError", "err" } "git_diff_tree_to_index" { "Diff *", "&this>1", "Repository *", "repo", "Tree *", "tree", "Index *", "index", "DiffOptions *", "opts" },
 	},
-	method "name" {
-		c_method_call "const char *" "git_tree_entry_name" {}
+	constructor "tree_to_workdir_with_index" {
+		c_call { "GitError", "err" } "git_diff_tree_to_workdir_with_index" { "Diff *", "&this>1", "Repository *", "repo", "Tree *", "tree", "DiffOptions *", "opts" },
 	},
-	method "filemode" {
-		c_method_call "unsigned int" "git_tree_entry_filemode" {}
+	constructor "tree_to_tree" {
+		c_call { "GitError", "err" } "git_diff_tree_to_tree" { "Diff *", "&this>1", "Repository *", "repo", "Tree *", "tree", "Tree *", "tree", "DiffOptions *", "opts" },
 	},
-	method "id" {
-		var_out{"OID", "id"},
-		c_source "${id} = *(git_tree_entry_id(${this}));"
+	destructor {
+		c_method_call "void" "git_diff_free" {}
 	},
-	method "object" {
-		c_call "GitError" "git_tree_entry_to_object"
-			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
+	method "num" {
+		c_method_call { "size_t", "count" } "git_diff_num_deltas" {},
+	},
+	method "find_similar" {
+		c_method_call { "GitError", "err" } "git_diff_find_similar" { "DiffFindOptions *", "opts" },
 	},
 }
-
