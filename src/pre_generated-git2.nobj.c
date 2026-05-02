@@ -283,66 +283,96 @@ static void dyn_caster_Object(void **obj, obj_type **type);
 
 
 static obj_type obj_types[] = {
-#define obj_type_id_StrArray 0
+#define obj_type_id_CheckoutOptions 0
+#define obj_type_CheckoutOptions (obj_types[obj_type_id_CheckoutOptions])
+  { NULL, 0, OBJ_TYPE_FLAG_WEAK_REF, "CheckoutOptions" },
+#define obj_type_id_DiffFindOptions 1
+#define obj_type_DiffFindOptions (obj_types[obj_type_id_DiffFindOptions])
+  { NULL, 1, OBJ_TYPE_FLAG_WEAK_REF, "DiffFindOptions" },
+#define obj_type_id_DiffOptions 2
+#define obj_type_DiffOptions (obj_types[obj_type_id_DiffOptions])
+  { NULL, 2, OBJ_TYPE_FLAG_WEAK_REF, "DiffOptions" },
+#define obj_type_id_DiffDelta 3
+#define obj_type_DiffDelta (obj_types[obj_type_id_DiffDelta])
+  { NULL, 3, OBJ_TYPE_FLAG_WEAK_REF, "DiffDelta" },
+#define obj_type_id_DiffStats 4
+#define obj_type_DiffStats (obj_types[obj_type_id_DiffStats])
+  { NULL, 4, OBJ_TYPE_FLAG_WEAK_REF, "DiffStats" },
+#define obj_type_id_DiffFile 5
+#define obj_type_DiffFile (obj_types[obj_type_id_DiffFile])
+  { NULL, 5, OBJ_TYPE_FLAG_WEAK_REF, "DiffFile" },
+#define obj_type_id_Diff 6
+#define obj_type_Diff (obj_types[obj_type_id_Diff])
+  { NULL, 6, OBJ_TYPE_FLAG_WEAK_REF, "Diff" },
+#define obj_type_id_StatusOptions 7
+#define obj_type_StatusOptions (obj_types[obj_type_id_StatusOptions])
+  { NULL, 7, OBJ_TYPE_FLAG_WEAK_REF, "StatusOptions" },
+#define obj_type_id_StatusList 8
+#define obj_type_StatusList (obj_types[obj_type_id_StatusList])
+  { NULL, 8, OBJ_TYPE_FLAG_WEAK_REF, "StatusList" },
+#define obj_type_id_StatusEntry 9
+#define obj_type_StatusEntry (obj_types[obj_type_id_StatusEntry])
+  { NULL, 9, OBJ_TYPE_FLAG_WEAK_REF, "StatusEntry" },
+#define obj_type_id_StrArray 10
 #define obj_type_StrArray (obj_types[obj_type_id_StrArray])
-  { NULL, 0, OBJ_TYPE_SIMPLE, "StrArray" },
-#define obj_type_id_Repository 1
+  { NULL, 10, OBJ_TYPE_SIMPLE, "StrArray" },
+#define obj_type_id_Repository 11
 #define obj_type_Repository (obj_types[obj_type_id_Repository])
-  { NULL, 1, OBJ_TYPE_FLAG_WEAK_REF, "Repository" },
-#define obj_type_id_Config 2
+  { NULL, 11, OBJ_TYPE_FLAG_WEAK_REF, "Repository" },
+#define obj_type_id_Config 12
 #define obj_type_Config (obj_types[obj_type_id_Config])
-  { NULL, 2, OBJ_TYPE_FLAG_WEAK_REF, "Config" },
-#define obj_type_id_OdbObject 3
+  { NULL, 12, OBJ_TYPE_FLAG_WEAK_REF, "Config" },
+#define obj_type_id_OdbObject 13
 #define obj_type_OdbObject (obj_types[obj_type_id_OdbObject])
-  { NULL, 3, OBJ_TYPE_FLAG_WEAK_REF, "OdbObject" },
-#define obj_type_id_OID 4
+  { NULL, 13, OBJ_TYPE_FLAG_WEAK_REF, "OdbObject" },
+#define obj_type_id_OID 14
 #define obj_type_OID (obj_types[obj_type_id_OID])
-  { NULL, 4, OBJ_TYPE_SIMPLE, "OID" },
-#define obj_type_id_OID_Shorten 5
+  { NULL, 14, OBJ_TYPE_SIMPLE, "OID" },
+#define obj_type_id_OID_Shorten 15
 #define obj_type_OID_Shorten (obj_types[obj_type_id_OID_Shorten])
-  { NULL, 5, OBJ_TYPE_FLAG_WEAK_REF, "OID_Shorten" },
-#define obj_type_id_ODB 6
+  { NULL, 15, OBJ_TYPE_FLAG_WEAK_REF, "OID_Shorten" },
+#define obj_type_id_ODB 16
 #define obj_type_ODB (obj_types[obj_type_id_ODB])
-  { NULL, 6, OBJ_TYPE_FLAG_WEAK_REF, "ODB" },
-#define obj_type_id_ODBBackend 7
+  { NULL, 16, OBJ_TYPE_FLAG_WEAK_REF, "ODB" },
+#define obj_type_id_ODBBackend 17
 #define obj_type_ODBBackend (obj_types[obj_type_id_ODBBackend])
-  { NULL, 7, OBJ_TYPE_FLAG_WEAK_REF, "ODBBackend" },
-#define obj_type_id_Index 8
+  { NULL, 17, OBJ_TYPE_FLAG_WEAK_REF, "ODBBackend" },
+#define obj_type_id_Index 18
 #define obj_type_Index (obj_types[obj_type_id_Index])
-  { NULL, 8, OBJ_TYPE_FLAG_WEAK_REF, "Index" },
-#define obj_type_id_IndexEntry 9
+  { NULL, 18, OBJ_TYPE_FLAG_WEAK_REF, "Index" },
+#define obj_type_id_IndexEntry 19
 #define obj_type_IndexEntry (obj_types[obj_type_id_IndexEntry])
-  { NULL, 9, OBJ_TYPE_FLAG_WEAK_REF, "IndexEntry" },
-#define obj_type_id_IndexEntryUnmerged 10
+  { NULL, 19, OBJ_TYPE_FLAG_WEAK_REF, "IndexEntry" },
+#define obj_type_id_IndexEntryUnmerged 20
 #define obj_type_IndexEntryUnmerged (obj_types[obj_type_id_IndexEntryUnmerged])
-  { NULL, 10, OBJ_TYPE_FLAG_WEAK_REF, "IndexEntryUnmerged" },
-#define obj_type_id_Object 11
+  { NULL, 20, OBJ_TYPE_FLAG_WEAK_REF, "IndexEntryUnmerged" },
+#define obj_type_id_Object 21
 #define obj_type_Object (obj_types[obj_type_id_Object])
-  { dyn_caster_Object, 11, OBJ_TYPE_FLAG_WEAK_REF, "Object" },
-#define obj_type_id_Blob 12
+  { dyn_caster_Object, 21, OBJ_TYPE_FLAG_WEAK_REF, "Object" },
+#define obj_type_id_Blob 22
 #define obj_type_Blob (obj_types[obj_type_id_Blob])
-  { NULL, 12, OBJ_TYPE_FLAG_WEAK_REF, "Blob" },
-#define obj_type_id_Signature 13
+  { NULL, 22, OBJ_TYPE_FLAG_WEAK_REF, "Blob" },
+#define obj_type_id_Signature 23
 #define obj_type_Signature (obj_types[obj_type_id_Signature])
-  { NULL, 13, OBJ_TYPE_FLAG_WEAK_REF, "Signature" },
-#define obj_type_id_Commit 14
+  { NULL, 23, OBJ_TYPE_FLAG_WEAK_REF, "Signature" },
+#define obj_type_id_Commit 24
 #define obj_type_Commit (obj_types[obj_type_id_Commit])
-  { NULL, 14, OBJ_TYPE_FLAG_WEAK_REF, "Commit" },
-#define obj_type_id_Tree 15
+  { NULL, 24, OBJ_TYPE_FLAG_WEAK_REF, "Commit" },
+#define obj_type_id_Tree 25
 #define obj_type_Tree (obj_types[obj_type_id_Tree])
-  { NULL, 15, OBJ_TYPE_FLAG_WEAK_REF, "Tree" },
-#define obj_type_id_TreeEntry 16
+  { NULL, 25, OBJ_TYPE_FLAG_WEAK_REF, "Tree" },
+#define obj_type_id_TreeEntry 26
 #define obj_type_TreeEntry (obj_types[obj_type_id_TreeEntry])
-  { NULL, 16, OBJ_TYPE_FLAG_WEAK_REF, "TreeEntry" },
-#define obj_type_id_Tag 17
+  { NULL, 26, OBJ_TYPE_FLAG_WEAK_REF, "TreeEntry" },
+#define obj_type_id_Tag 27
 #define obj_type_Tag (obj_types[obj_type_id_Tag])
-  { NULL, 17, OBJ_TYPE_FLAG_WEAK_REF, "Tag" },
-#define obj_type_id_RevWalk 18
+  { NULL, 27, OBJ_TYPE_FLAG_WEAK_REF, "Tag" },
+#define obj_type_id_RevWalk 28
 #define obj_type_RevWalk (obj_types[obj_type_id_RevWalk])
-  { NULL, 18, OBJ_TYPE_FLAG_WEAK_REF, "RevWalk" },
-#define obj_type_id_Reference 19
+  { NULL, 28, OBJ_TYPE_FLAG_WEAK_REF, "RevWalk" },
+#define obj_type_id_Reference 29
 #define obj_type_Reference (obj_types[obj_type_id_Reference])
-  { NULL, 19, OBJ_TYPE_FLAG_WEAK_REF, "Reference" },
+  { NULL, 29, OBJ_TYPE_FLAG_WEAK_REF, "Reference" },
   {NULL, -1, 0, NULL},
 };
 
@@ -1415,6 +1445,96 @@ static char *obj_interfaces[] = {
 
 
 
+#define obj_type_CheckoutOptions_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_CheckoutOptions))
+#define obj_type_CheckoutOptions_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_CheckoutOptions))
+#define obj_type_CheckoutOptions_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_CheckoutOptions), flags)
+#define obj_type_CheckoutOptions_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_CheckoutOptions), flags)
+
+#define obj_type_DiffFindOptions_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_DiffFindOptions))
+#define obj_type_DiffFindOptions_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_DiffFindOptions))
+#define obj_type_DiffFindOptions_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_DiffFindOptions), flags)
+#define obj_type_DiffFindOptions_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_DiffFindOptions), flags)
+
+#define obj_type_DiffOptions_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_DiffOptions))
+#define obj_type_DiffOptions_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_DiffOptions))
+#define obj_type_DiffOptions_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_DiffOptions), flags)
+#define obj_type_DiffOptions_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_DiffOptions), flags)
+
+#define obj_type_DiffDelta_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_DiffDelta))
+#define obj_type_DiffDelta_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_DiffDelta))
+#define obj_type_DiffDelta_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_DiffDelta), flags)
+#define obj_type_DiffDelta_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_DiffDelta), flags)
+
+#define obj_type_DiffStats_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_DiffStats))
+#define obj_type_DiffStats_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_DiffStats))
+#define obj_type_DiffStats_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_DiffStats), flags)
+#define obj_type_DiffStats_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_DiffStats), flags)
+
+#define obj_type_DiffFile_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_DiffFile))
+#define obj_type_DiffFile_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_DiffFile))
+#define obj_type_DiffFile_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_DiffFile), flags)
+#define obj_type_DiffFile_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_DiffFile), flags)
+
+#define obj_type_Diff_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_Diff))
+#define obj_type_Diff_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_Diff))
+#define obj_type_Diff_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_Diff), flags)
+#define obj_type_Diff_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_Diff), flags)
+
+#define obj_type_StatusOptions_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_StatusOptions))
+#define obj_type_StatusOptions_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_StatusOptions))
+#define obj_type_StatusOptions_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_StatusOptions), flags)
+#define obj_type_StatusOptions_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_StatusOptions), flags)
+
+#define obj_type_StatusList_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_StatusList))
+#define obj_type_StatusList_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_StatusList))
+#define obj_type_StatusList_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_StatusList), flags)
+#define obj_type_StatusList_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_StatusList), flags)
+
+#define obj_type_StatusEntry_check(L, _index) \
+	obj_udata_luacheck(L, _index, &(obj_type_StatusEntry))
+#define obj_type_StatusEntry_optional(L, _index) \
+	obj_udata_luaoptional(L, _index, &(obj_type_StatusEntry))
+#define obj_type_StatusEntry_delete(L, _index, flags) \
+	obj_udata_luadelete_weak(L, _index, &(obj_type_StatusEntry), flags)
+#define obj_type_StatusEntry_push(L, obj, flags) \
+	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_StatusEntry), flags)
+
 #define obj_type_StrArray_check(L, _index) \
 	(StrArray *)obj_simple_udata_luacheck(L, _index, &(obj_type_StrArray))
 #define obj_type_StrArray_optional(L, _index) \
@@ -1596,6 +1716,26 @@ static char *obj_interfaces[] = {
 	obj_udata_luapush_weak(L, (void *)obj, &(obj_type_Reference), flags)
 
 
+
+typedef git_checkout_options CheckoutOptions;
+
+typedef git_diff_find_options DiffFindOptions;
+
+typedef git_diff_options DiffOptions;
+
+typedef git_diff_delta DiffDelta;
+
+typedef git_diff_stats DiffStats;
+
+typedef git_diff_file DiffFile;
+
+typedef git_diff Diff;
+
+typedef git_status_options StatusOptions;
+
+typedef git_status_list StatusList;
+
+typedef git_status_entry StatusEntry;
 
 typedef git_strarray StrArray;
 
@@ -1839,13 +1979,1340 @@ static int git2__version__func(lua_State *L) {
   return 1;
 }
 
+/* method: init */
+static int CheckoutOptions__init__meth(lua_State *L) {
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  CheckoutOptions * this_idx1;
+	this_idx1 = calloc(1, sizeof(CheckoutOptions));
+	git_checkout_options_init(this_idx1, GIT_STATUS_OPTIONS_VERSION);
+
+  obj_type_CheckoutOptions_push(L, this_idx1, this_flags_idx1);
+  return 1;
+}
+
+/* method: _priv */
+static int CheckoutOptions__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  CheckoutOptions * this_idx1;
+  this_idx1 = obj_type_CheckoutOptions_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+	free(this_idx1);
+
+  return 0;
+}
+
+/* method: set_checkout_strategy */
+static int CheckoutOptions__set_checkout_strategy__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int checkout_strategy_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  checkout_strategy_idx2 = luaL_checkinteger(L,2);
+		this_idx1->checkout_strategy = checkout_strategy_idx2;
+
+  return 0;
+}
+
+/* method: set_disable_filters */
+static int CheckoutOptions__set_disable_filters__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  int disable_filters_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  disable_filters_idx2 = luaL_checkinteger(L,2);
+		this_idx1->disable_filters = disable_filters_idx2;
+
+  return 0;
+}
+
+/* method: set_dir_mode */
+static int CheckoutOptions__set_dir_mode__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int dir_mode_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  dir_mode_idx2 = luaL_checkinteger(L,2);
+		this_idx1->dir_mode = dir_mode_idx2;
+
+  return 0;
+}
+
+/* method: set_file_mode */
+static int CheckoutOptions__set_file_mode__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int file_mode_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  file_mode_idx2 = luaL_checkinteger(L,2);
+		this_idx1->file_mode = file_mode_idx2;
+
+  return 0;
+}
+
+/* method: set_file_open_flags */
+static int CheckoutOptions__set_file_open_flags__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  int file_open_flags_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  file_open_flags_idx2 = luaL_checkinteger(L,2);
+		this_idx1->file_open_flags = file_open_flags_idx2;
+
+  return 0;
+}
+
+/* method: set_notify_flags */
+static int CheckoutOptions__set_notify_flags__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int notify_flags_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  notify_flags_idx2 = luaL_checkinteger(L,2);
+		this_idx1->notify_flags = notify_flags_idx2;
+
+  return 0;
+}
+
+/* method: paths */
+static int CheckoutOptions__paths__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  StrArray paths_idx1_store;
+  StrArray * paths_idx1 = &(paths_idx1_store);
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+		paths_idx1 = &this_idx1->paths;
+
+  obj_type_StrArray_push(L, paths_idx1);
+  return 1;
+}
+
+/* method: set_paths */
+static int CheckoutOptions__set_paths__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  StrArray * paths_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  paths_idx2 = obj_type_StrArray_check(L,2);
+		this_idx1->paths.strings = paths_idx2->strings;
+		this_idx1->paths.count = paths_idx2->count;
+
+  return 0;
+}
+
+/* method: set_baseline */
+static int CheckoutOptions__set_baseline__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  Tree * baseline_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  baseline_idx2 = obj_type_Tree_check(L,2);
+		this_idx1->baseline = baseline_idx2;
+
+  return 0;
+}
+
+/* method: set_baseline_index */
+static int CheckoutOptions__set_baseline_index__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  Index * baseline_index_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  baseline_index_idx2 = obj_type_Index_check(L,2);
+		this_idx1->baseline_index = baseline_index_idx2;
+
+  return 0;
+}
+
+/* method: set_target_directory */
+static int CheckoutOptions__set_target_directory__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  size_t target_directory_len_idx2;
+  const char * target_directory_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  target_directory_idx2 = luaL_checklstring(L,2,&(target_directory_len_idx2));
+		this_idx1->target_directory = target_directory_idx2;
+
+  return 0;
+}
+
+/* method: set_ancestor_label */
+static int CheckoutOptions__set_ancestor_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  size_t ancestor_label_len_idx2;
+  const char * ancestor_label_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  ancestor_label_idx2 = luaL_checklstring(L,2,&(ancestor_label_len_idx2));
+		this_idx1->ancestor_label = ancestor_label_idx2;
+
+  return 0;
+}
+
+/* method: set_our_label */
+static int CheckoutOptions__set_our_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  size_t our_label_len_idx2;
+  const char * our_label_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  our_label_idx2 = luaL_checklstring(L,2,&(our_label_len_idx2));
+		this_idx1->our_label = our_label_idx2;
+
+  return 0;
+}
+
+/* method: set_their_label */
+static int CheckoutOptions__set_their_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  size_t their_label_len_idx2;
+  const char * their_label_idx2;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+  their_label_idx2 = luaL_checklstring(L,2,&(their_label_len_idx2));
+		this_idx1->their_label = their_label_idx2;
+
+  return 0;
+}
+
+/* method: version */
+static int CheckoutOptions__version__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->version;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: checkout_strategy */
+static int CheckoutOptions__checkout_strategy__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->checkout_strategy;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: disable_filters */
+static int CheckoutOptions__disable_filters__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->disable_filters;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: dir_mode */
+static int CheckoutOptions__dir_mode__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->dir_mode;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: file_mode */
+static int CheckoutOptions__file_mode__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->file_mode;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: file_open_flags */
+static int CheckoutOptions__file_open_flags__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->file_open_flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: notify_flags */
+static int CheckoutOptions__notify_flags__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->notify_flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: baseline */
+static int CheckoutOptions__baseline__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  Tree * field_idx1;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->baseline;
+
+  obj_type_Tree_push(L, field_idx1, 0);
+  return 1;
+}
+
+/* method: baseline_index */
+static int CheckoutOptions__baseline_index__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  Index * field_idx1;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->baseline_index;
+
+  obj_type_Index_push(L, field_idx1, 0);
+  return 1;
+}
+
+/* method: target_directory */
+static int CheckoutOptions__target_directory__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->target_directory;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: ancestor_label */
+static int CheckoutOptions__ancestor_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->ancestor_label;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: our_label */
+static int CheckoutOptions__our_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->our_label;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: their_label */
+static int CheckoutOptions__their_label__meth(lua_State *L) {
+  CheckoutOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_CheckoutOptions_check(L,1);
+	field_idx1 = this_idx1->their_label;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: init */
+static int DiffFindOptions__init__meth(lua_State *L) {
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  DiffFindOptions * this_idx1;
+	this_idx1 = calloc(1, sizeof(DiffFindOptions));
+	git_diff_find_options_init(this_idx1, GIT_DIFF_OPTIONS_VERSION);
+
+  obj_type_DiffFindOptions_push(L, this_idx1, this_flags_idx1);
+  return 1;
+}
+
+/* method: _priv */
+static int DiffFindOptions__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  DiffFindOptions * this_idx1;
+  this_idx1 = obj_type_DiffFindOptions_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+	if(this_idx1->metric != NULL) {
+		free((void *)this_idx1->metric);
+		this_idx1->metric = NULL;
+	}
+	free(this_idx1);
+
+  return 0;
+}
+
+/* method: set_flags */
+static int DiffFindOptions__set_flags__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  unsigned int flags_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  flags_idx2 = luaL_checkinteger(L,2);
+		this_idx1->flags = flags_idx2;
+
+  return 0;
+}
+
+/* method: set_rename_threshold */
+static int DiffFindOptions__set_rename_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t rename_threshold_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  rename_threshold_idx2 = luaL_checkinteger(L,2);
+		this_idx1->rename_threshold = rename_threshold_idx2;
+
+  return 0;
+}
+
+/* method: set_rename_from_rewrite_threshold */
+static int DiffFindOptions__set_rename_from_rewrite_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t rename_from_rewrite_threshold_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  rename_from_rewrite_threshold_idx2 = luaL_checkinteger(L,2);
+		this_idx1->rename_from_rewrite_threshold = rename_from_rewrite_threshold_idx2;
+
+  return 0;
+}
+
+/* method: set_copy_threshold */
+static int DiffFindOptions__set_copy_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t copy_threshold_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  copy_threshold_idx2 = luaL_checkinteger(L,2);
+		this_idx1->copy_threshold = copy_threshold_idx2;
+
+  return 0;
+}
+
+/* method: set_break_rewrite_threshold */
+static int DiffFindOptions__set_break_rewrite_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t break_rewrite_threshold_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  break_rewrite_threshold_idx2 = luaL_checkinteger(L,2);
+		this_idx1->break_rewrite_threshold = break_rewrite_threshold_idx2;
+
+  return 0;
+}
+
+/* method: set_rename_limit */
+static int DiffFindOptions__set_rename_limit__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  size_t rename_limit_idx2;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+  rename_limit_idx2 = luaL_checkinteger(L,2);
+		this_idx1->rename_limit = rename_limit_idx2;
+
+  return 0;
+}
+
+/* method: version */
+static int DiffFindOptions__version__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->version;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: flags */
+static int DiffFindOptions__flags__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: rename_threshold */
+static int DiffFindOptions__rename_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->rename_threshold;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: rename_from_rewrite_threshold */
+static int DiffFindOptions__rename_from_rewrite_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->rename_from_rewrite_threshold;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: copy_threshold */
+static int DiffFindOptions__copy_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->copy_threshold;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: break_rewrite_threshold */
+static int DiffFindOptions__break_rewrite_threshold__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->break_rewrite_threshold;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: rename_limit */
+static int DiffFindOptions__rename_limit__meth(lua_State *L) {
+  DiffFindOptions * this_idx1;
+  size_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFindOptions_check(L,1);
+	field_idx1 = this_idx1->rename_limit;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: init */
+static int DiffOptions__init__meth(lua_State *L) {
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  DiffOptions * this_idx1;
+	this_idx1 = calloc(1, sizeof(DiffOptions));
+	git_diff_options_init(this_idx1, GIT_DIFF_OPTIONS_VERSION);
+
+  obj_type_DiffOptions_push(L, this_idx1, this_flags_idx1);
+  return 1;
+}
+
+/* method: _priv */
+static int DiffOptions__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  DiffOptions * this_idx1;
+  this_idx1 = obj_type_DiffOptions_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+	if(this_idx1->old_prefix != NULL) {
+		free((void *)this_idx1->old_prefix);
+		this_idx1->old_prefix = NULL;
+	}
+	if(this_idx1->new_prefix != NULL) {
+		free((void *)this_idx1->new_prefix);
+		this_idx1->new_prefix = NULL;
+	}
+	free(this_idx1);
+
+  return 0;
+}
+
+/* method: set_flags */
+static int DiffOptions__set_flags__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int flags_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  flags_idx2 = luaL_checkinteger(L,2);
+		this_idx1->flags = flags_idx2;
+
+  return 0;
+}
+
+/* method: set_ignore_submodules */
+static int DiffOptions__set_ignore_submodules__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int ignore_submodules_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  ignore_submodules_idx2 = luaL_checkinteger(L,2);
+		this_idx1->ignore_submodules = ignore_submodules_idx2;
+
+  return 0;
+}
+
+/* method: pathspec */
+static int DiffOptions__pathspec__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  StrArray pathspec_idx1_store;
+  StrArray * pathspec_idx1 = &(pathspec_idx1_store);
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+		pathspec_idx1 = &this_idx1->pathspec;
+
+  obj_type_StrArray_push(L, pathspec_idx1);
+  return 1;
+}
+
+/* method: set_pathspec */
+static int DiffOptions__set_pathspec__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  StrArray * pathspec_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  pathspec_idx2 = obj_type_StrArray_check(L,2);
+		this_idx1->pathspec.strings = pathspec_idx2->strings;
+		this_idx1->pathspec.count = pathspec_idx2->count;
+
+  return 0;
+}
+
+/* method: set_context_lines */
+static int DiffOptions__set_context_lines__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint32_t context_lines_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  context_lines_idx2 = luaL_checkinteger(L,2);
+		this_idx1->context_lines = context_lines_idx2;
+
+  return 0;
+}
+
+/* method: set_interhunk_lines */
+static int DiffOptions__set_interhunk_lines__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint32_t interhunk_lines_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  interhunk_lines_idx2 = luaL_checkinteger(L,2);
+		this_idx1->interhunk_lines = interhunk_lines_idx2;
+
+  return 0;
+}
+
+/* method: set_oid_type */
+static int DiffOptions__set_oid_type__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int oid_type_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  oid_type_idx2 = luaL_checkinteger(L,2);
+		this_idx1->oid_type = oid_type_idx2;
+
+  return 0;
+}
+
+/* method: set_id_abbrev */
+static int DiffOptions__set_id_abbrev__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint16_t id_abbrev_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  id_abbrev_idx2 = luaL_checkinteger(L,2);
+		this_idx1->id_abbrev = id_abbrev_idx2;
+
+  return 0;
+}
+
+/* method: set_max_size */
+static int DiffOptions__set_max_size__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  int64_t max_size_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  max_size_idx2 = luaL_checkinteger(L,2);
+		this_idx1->max_size = max_size_idx2;
+
+  return 0;
+}
+
+/* method: set_old_prefix */
+static int DiffOptions__set_old_prefix__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  size_t old_prefix_len_idx2;
+  const char * old_prefix_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  old_prefix_idx2 = luaL_checklstring(L,2,&(old_prefix_len_idx2));
+		this_idx1->old_prefix = old_prefix_idx2;
+
+  return 0;
+}
+
+/* method: set_new_prefix */
+static int DiffOptions__set_new_prefix__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  size_t new_prefix_len_idx2;
+  const char * new_prefix_idx2;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+  new_prefix_idx2 = luaL_checklstring(L,2,&(new_prefix_len_idx2));
+		this_idx1->new_prefix = new_prefix_idx2;
+
+  return 0;
+}
+
+/* method: version */
+static int DiffOptions__version__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->version;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: flags */
+static int DiffOptions__flags__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: ignore_submodules */
+static int DiffOptions__ignore_submodules__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->ignore_submodules;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: context_lines */
+static int DiffOptions__context_lines__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint32_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->context_lines;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: interhunk_lines */
+static int DiffOptions__interhunk_lines__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint32_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->interhunk_lines;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: oid_type */
+static int DiffOptions__oid_type__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->oid_type;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: id_abbrev */
+static int DiffOptions__id_abbrev__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->id_abbrev;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: max_size */
+static int DiffOptions__max_size__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  int64_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->max_size;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: old_prefix */
+static int DiffOptions__old_prefix__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->old_prefix;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: new_prefix */
+static int DiffOptions__new_prefix__meth(lua_State *L) {
+  DiffOptions * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_DiffOptions_check(L,1);
+	field_idx1 = this_idx1->new_prefix;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: get */
+static int DiffDelta__get__meth(lua_State *L) {
+  Diff * diff_idx1;
+  size_t idx_idx2;
+  const DiffDelta * rc_git_diff_get_delta_idx1;
+  int this_flags_idx2 = OBJ_UDATA_FLAG_OWN;
+  DiffDelta * this_idx2;
+  diff_idx1 = obj_type_Diff_check(L,1);
+  idx_idx2 = luaL_checkinteger(L,2);
+  rc_git_diff_get_delta_idx1 = git_diff_get_delta(diff_idx1, idx_idx2);
+  obj_type_DiffDelta_push(L, rc_git_diff_get_delta_idx1, 0);
+  obj_type_DiffDelta_push(L, this_idx2, this_flags_idx2);
+  return 2;
+}
+
+/* method: old_file */
+static int DiffDelta__old_file__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  DiffFile * old_file_idx1;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+		old_file_idx1 = &this_idx1->old_file;
+
+  obj_type_DiffFile_push(L, old_file_idx1, 0);
+  return 1;
+}
+
+/* method: new_file */
+static int DiffDelta__new_file__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  DiffFile * new_file_idx1;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+		new_file_idx1 = &this_idx1->new_file;
+
+  obj_type_DiffFile_push(L, new_file_idx1, 0);
+  return 1;
+}
+
+/* method: status */
+static int DiffDelta__status__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+	field_idx1 = this_idx1->status;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: flags */
+static int DiffDelta__flags__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  uint32_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+	field_idx1 = this_idx1->flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: similarity */
+static int DiffDelta__similarity__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+	field_idx1 = this_idx1->similarity;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: nfiles */
+static int DiffDelta__nfiles__meth(lua_State *L) {
+  DiffDelta * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffDelta_check(L,1);
+	field_idx1 = this_idx1->nfiles;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: get */
+static int DiffStats__get__meth(lua_State *L) {
+  Diff * diff_idx1;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  DiffStats * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  diff_idx1 = obj_type_Diff_check(L,1);
+  err_idx2 = git_diff_get_stats(&(this_idx1), diff_idx1);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_DiffStats_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: insertions */
+static int DiffStats__insertions__meth(lua_State *L) {
+  DiffStats * this_idx1;
+  size_t size_idx1 = 0;
+  this_idx1 = obj_type_DiffStats_check(L,1);
+  size_idx1 = git_diff_stats_insertions(this_idx1);
+  lua_pushinteger(L, size_idx1);
+  return 1;
+}
+
+/* method: deletions */
+static int DiffStats__deletions__meth(lua_State *L) {
+  DiffStats * this_idx1;
+  size_t size_idx1 = 0;
+  this_idx1 = obj_type_DiffStats_check(L,1);
+  size_idx1 = git_diff_stats_deletions(this_idx1);
+  lua_pushinteger(L, size_idx1);
+  return 1;
+}
+
+/* method: files_changed */
+static int DiffStats__files_changed__meth(lua_State *L) {
+  DiffStats * this_idx1;
+  size_t size_idx1 = 0;
+  this_idx1 = obj_type_DiffStats_check(L,1);
+  size_idx1 = git_diff_stats_files_changed(this_idx1);
+  lua_pushinteger(L, size_idx1);
+  return 1;
+}
+
+/* method: _priv */
+static int DiffFile__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  DiffFile * this_idx1;
+  this_idx1 = obj_type_DiffFile_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+	if(this_idx1->path != NULL) {
+		free((void *)this_idx1->path);
+		this_idx1->path = NULL;
+	}
+	free(this_idx1);
+
+  return 0;
+}
+
+/* method: id */
+static int DiffFile__id__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  OID field_idx1;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->id;
+
+  obj_type_OID_push(L, field_idx1);
+  return 1;
+}
+
+/* method: path */
+static int DiffFile__path__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  const char * field_idx1 = NULL;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->path;
+
+  lua_pushstring(L, field_idx1);
+  return 1;
+}
+
+/* method: size */
+static int DiffFile__size__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  uint64_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->size;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: flags */
+static int DiffFile__flags__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  uint32_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: mode */
+static int DiffFile__mode__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->mode;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: id_abbrev */
+static int DiffFile__id_abbrev__meth(lua_State *L) {
+  DiffFile * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_DiffFile_check(L,1);
+	field_idx1 = this_idx1->id_abbrev;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: index_to_workdir */
+static int Diff__index_to_workdir__meth(lua_State *L) {
+  Repository * repo_idx1;
+  Index * index_idx2;
+  DiffOptions * opts_idx3;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  Diff * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  index_idx2 = obj_type_Index_check(L,2);
+  opts_idx3 = obj_type_DiffOptions_check(L,3);
+  err_idx2 = git_diff_index_to_workdir(&(this_idx1), repo_idx1, index_idx2, opts_idx3);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_Diff_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: tree_to_index */
+static int Diff__tree_to_index__meth(lua_State *L) {
+  Repository * repo_idx1;
+  Tree * tree_idx2;
+  Index * index_idx3;
+  DiffOptions * opts_idx4;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  Diff * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  tree_idx2 = obj_type_Tree_check(L,2);
+  index_idx3 = obj_type_Index_check(L,3);
+  opts_idx4 = obj_type_DiffOptions_check(L,4);
+  err_idx2 = git_diff_tree_to_index(&(this_idx1), repo_idx1, tree_idx2, index_idx3, opts_idx4);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_Diff_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: tree_to_workdir_with_index */
+static int Diff__tree_to_workdir_with_index__meth(lua_State *L) {
+  Repository * repo_idx1;
+  Tree * tree_idx2;
+  DiffOptions * opts_idx3;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  Diff * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  tree_idx2 = obj_type_Tree_check(L,2);
+  opts_idx3 = obj_type_DiffOptions_check(L,3);
+  err_idx2 = git_diff_tree_to_workdir_with_index(&(this_idx1), repo_idx1, tree_idx2, opts_idx3);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_Diff_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: tree_to_tree */
+static int Diff__tree_to_tree__meth(lua_State *L) {
+  Repository * repo_idx1;
+  Tree * tree_idx2;
+  DiffOptions * opts_idx3;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  Diff * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  tree_idx2 = obj_type_Tree_check(L,2);
+  opts_idx3 = obj_type_DiffOptions_check(L,3);
+  err_idx2 = git_diff_tree_to_tree(&(this_idx1), repo_idx1, tree_idx2, tree_idx2, opts_idx3);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_Diff_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: _priv */
+static int Diff__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  Diff * this_idx1;
+  this_idx1 = obj_type_Diff_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+  git_diff_free(this_idx1);
+  return 0;
+}
+
+/* method: num */
+static int Diff__num__meth(lua_State *L) {
+  Diff * this_idx1;
+  size_t count_idx1 = 0;
+  this_idx1 = obj_type_Diff_check(L,1);
+  count_idx1 = git_diff_num_deltas(this_idx1);
+  lua_pushinteger(L, count_idx1);
+  return 1;
+}
+
+/* method: find_similar */
+static int Diff__find_similar__meth(lua_State *L) {
+  Diff * this_idx1;
+  DiffFindOptions * opts_idx2;
+  GitError err_idx1 = GIT_OK;
+  this_idx1 = obj_type_Diff_check(L,1);
+  opts_idx2 = obj_type_DiffFindOptions_check(L,2);
+  err_idx1 = git_diff_find_similar(this_idx1, opts_idx2);
+  /* check for error. */
+  if((GIT_OK != err_idx1)) {
+    lua_pushnil(L);
+      error_code__GitError__push(L, err_idx1);
+  } else {
+    lua_pushboolean(L, 1);
+    lua_pushnil(L);
+  }
+  return 2;
+}
+
+/* method: init */
+static int StatusOptions__init__meth(lua_State *L) {
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  StatusOptions * this_idx1;
+	this_idx1 = calloc(1, sizeof(StatusOptions));
+	git_status_options_init(this_idx1, GIT_STATUS_OPTIONS_VERSION);
+
+  obj_type_StatusOptions_push(L, this_idx1, this_flags_idx1);
+  return 1;
+}
+
+/* method: _priv */
+static int StatusOptions__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  StatusOptions * this_idx1;
+  this_idx1 = obj_type_StatusOptions_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+	free(this_idx1);
+
+  return 0;
+}
+
+/* method: set_show */
+static int StatusOptions__set_show__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  unsigned int show_idx2;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+  show_idx2 = luaL_checkinteger(L,2);
+		this_idx1->show = show_idx2;
+
+  return 0;
+}
+
+/* method: set_flags */
+static int StatusOptions__set_flags__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  unsigned int flags_idx2;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+  flags_idx2 = luaL_checkinteger(L,2);
+		this_idx1->flags = flags_idx2;
+
+  return 0;
+}
+
+/* method: pathspec */
+static int StatusOptions__pathspec__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  StrArray pathspec_idx1_store;
+  StrArray * pathspec_idx1 = &(pathspec_idx1_store);
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+		pathspec_idx1 = &this_idx1->pathspec;
+
+  obj_type_StrArray_push(L, pathspec_idx1);
+  return 1;
+}
+
+/* method: set_pathspec */
+static int StatusOptions__set_pathspec__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  StrArray * pathspec_idx2;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+  pathspec_idx2 = obj_type_StrArray_check(L,2);
+		this_idx1->pathspec.strings = pathspec_idx2->strings;
+		this_idx1->pathspec.count = pathspec_idx2->count;
+
+  return 0;
+}
+
+/* method: set_baseline */
+static int StatusOptions__set_baseline__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  Tree * baseline_idx2;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+  baseline_idx2 = obj_type_Tree_check(L,2);
+		this_idx1->baseline = baseline_idx2;
+
+  return 0;
+}
+
+/* method: set_rename_threshold */
+static int StatusOptions__set_rename_threshold__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  uint16_t rename_threshold_idx2;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+  rename_threshold_idx2 = luaL_checkinteger(L,2);
+		this_idx1->rename_threshold = rename_threshold_idx2;
+
+  return 0;
+}
+
+/* method: version */
+static int StatusOptions__version__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+	field_idx1 = this_idx1->version;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: show */
+static int StatusOptions__show__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+	field_idx1 = this_idx1->show;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: flags */
+static int StatusOptions__flags__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+	field_idx1 = this_idx1->flags;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: baseline */
+static int StatusOptions__baseline__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  Tree * field_idx1;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+	field_idx1 = this_idx1->baseline;
+
+  obj_type_Tree_push(L, field_idx1, 0);
+  return 1;
+}
+
+/* method: rename_threshold */
+static int StatusOptions__rename_threshold__meth(lua_State *L) {
+  StatusOptions * this_idx1;
+  uint16_t field_idx1 = 0;
+  this_idx1 = obj_type_StatusOptions_check(L,1);
+	field_idx1 = this_idx1->rename_threshold;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: new */
+static int StatusList__new__meth(lua_State *L) {
+  Repository * repo_idx1;
+  const StatusOptions * opts_idx2;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  StatusList * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  opts_idx2 = obj_type_StatusOptions_check(L,2);
+  err_idx2 = git_status_list_new(&(this_idx1), repo_idx1, opts_idx2);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_StatusList_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: _priv */
+static int StatusList__delete__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  StatusList * this_idx1;
+  this_idx1 = obj_type_StatusList_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+  git_status_list_free(this_idx1);
+  return 0;
+}
+
+/* method: entrycount */
+static int StatusList__entrycount__meth(lua_State *L) {
+  StatusList * this_idx1;
+  size_t count_idx1 = 0;
+  this_idx1 = obj_type_StatusList_check(L,1);
+  count_idx1 = git_status_list_entrycount(this_idx1);
+  lua_pushinteger(L, count_idx1);
+  return 1;
+}
+
+/* method: byindex */
+static int StatusEntry__byindex__meth(lua_State *L) {
+  StatusList * statuslist_idx1;
+  size_t idx_idx2;
+  StatusEntry * rc_git_status_byindex_idx1;
+  int this_flags_idx2 = OBJ_UDATA_FLAG_OWN;
+  StatusEntry * this_idx2;
+  statuslist_idx1 = obj_type_StatusList_check(L,1);
+  idx_idx2 = luaL_checkinteger(L,2);
+  rc_git_status_byindex_idx1 = git_status_byindex(statuslist_idx1, idx_idx2);
+  obj_type_StatusEntry_push(L, rc_git_status_byindex_idx1, 0);
+  obj_type_StatusEntry_push(L, this_idx2, this_flags_idx2);
+  return 2;
+}
+
+/* method: status */
+static int StatusEntry__status__meth(lua_State *L) {
+  StatusEntry * this_idx1;
+  unsigned int field_idx1 = 0;
+  this_idx1 = obj_type_StatusEntry_check(L,1);
+	field_idx1 = this_idx1->status;
+
+  lua_pushinteger(L, field_idx1);
+  return 1;
+}
+
+/* method: head_to_index */
+static int StatusEntry__head_to_index__meth(lua_State *L) {
+  StatusEntry * this_idx1;
+  DiffDelta * field_idx1;
+  this_idx1 = obj_type_StatusEntry_check(L,1);
+	field_idx1 = this_idx1->head_to_index;
+
+  obj_type_DiffDelta_push(L, field_idx1, 0);
+  return 1;
+}
+
+/* method: index_to_workdir */
+static int StatusEntry__index_to_workdir__meth(lua_State *L) {
+  StatusEntry * this_idx1;
+  DiffDelta * field_idx1;
+  this_idx1 = obj_type_StatusEntry_check(L,1);
+	field_idx1 = this_idx1->index_to_workdir;
+
+  obj_type_DiffDelta_push(L, field_idx1, 0);
+  return 1;
+}
+
 /* method: new */
 static int StrArray__new__meth(lua_State *L) {
+  size_t n_idx1;
   StrArray this_idx1_store;
   StrArray * this_idx1 = &(this_idx1_store);
+  n_idx1 = luaL_checkinteger(L,1);
 	StrArray array;
-	array.strings = NULL;
-	array.count = 0;
+	array.strings = (char **)calloc(n_idx1, sizeof(char *));
+	array.count = n_idx1;
 	this_idx1 = &array;
 
   obj_type_StrArray_push(L, this_idx1);
@@ -1857,7 +3324,7 @@ static int StrArray__free__meth(lua_State *L) {
   StrArray * this_idx1;
   this_idx1 = obj_type_StrArray_delete(L,1);
 	if(this_idx1->strings != 0) {
-		git_strarray_free(this_idx1);
+		git_strarray_dispose(this_idx1);
 		this_idx1->strings = NULL;
 	}
 
@@ -1877,6 +3344,25 @@ static int StrArray__str__meth(lua_State *L) {
 
   lua_pushstring(L, str_idx1);
   return 1;
+}
+
+/* method: set_str */
+static int StrArray__set_str__meth(lua_State *L) {
+  StrArray * this_idx1;
+  size_t n_idx2;
+  size_t str_len_idx3;
+  const char * str_idx3;
+  this_idx1 = obj_type_StrArray_check(L,1);
+  n_idx2 = luaL_checkinteger(L,2);
+  str_idx3 = luaL_checklstring(L,3,&(str_len_idx3));
+	if(n_idx2 < this_idx1->count) {
+		if(this_idx1->strings[n_idx2] != NULL) {
+			free(this_idx1->strings[n_idx2]);
+		}
+		this_idx1->strings[n_idx2] = strdup(str_idx3);
+	}
+
+  return 0;
 }
 
 /* method: get_array */
@@ -1914,22 +3400,94 @@ static void error_code__GitError__push(lua_State *L, GitError err) {
 		err_str = giterr->message;
 		break;
 	case GIT_ENOTFOUND:
-		err_str = "ENOTFOUND";
+		err_str = "Requested object could not be found";
 		break;
 	case GIT_EEXISTS:
-		err_str = "EEXISTS";
+		err_str = "Object exists preventing operation";
 		break;
 	case GIT_EAMBIGUOUS:
-		err_str = "EAMBIGUOUS";
+		err_str = "More than one object matches";
 		break;
 	case GIT_EBUFS:
-		err_str = "EBUFS";
+		err_str = "Output buffer too short to hold data";
+		break;
+	case GIT_EUSER:
+		err_str = "a special error that is never generated by libgit2 code";
+		break;
+	case GIT_EBAREREPO:
+		err_str = "Operation not allowed on bare repository";
+		break;
+	case GIT_EUNBORNBRANCH:
+		err_str = "HEAD refers to branch with no commits";
+		break;
+	case GIT_EUNMERGED:
+		err_str = "Merge in progress prevented operation";
+		break;
+	case GIT_ENONFASTFORWARD:
+		err_str = "Reference was not fast-forwardable";
+		break;
+	case GIT_EINVALIDSPEC:
+		err_str = "Name/ref spec was not in a valid format";
+		break;
+	case GIT_ECONFLICT:
+		err_str = "Checkout conflicts prevented operation";
+		break;
+	case GIT_ELOCKED:
+		err_str = "Lock file prevented operation";
+		break;
+	case GIT_EMODIFIED:
+		err_str = "Reference value does not match expected";
+		break;
+	case GIT_EAUTH:
+		err_str = "Authentication error";
+		break;
+	case GIT_ECERTIFICATE:
+		err_str = "Server certificate is invalid";
+		break;
+	case GIT_EAPPLIED:
+		err_str = "Patch/merge has already been applied";
+		break;
+	case GIT_EPEEL:
+		err_str = "The requested peel operation is not possible";
+		break;
+	case GIT_EEOF:
+		err_str = "Unexpected EOF";
+		break;
+	case GIT_EINVALID:
+		err_str = "Invalid operation or input";
+		break;
+	case GIT_EUNCOMMITTED:
+		err_str = "Uncommitted changes in index prevented operation";
+		break;
+	case GIT_EDIRECTORY:
+		err_str = "The operation is not valid for a directory";
+		break;
+	case GIT_EMERGECONFLICT:
+		err_str = "A merge conflict exists and cannot continue";
 		break;
 	case GIT_PASSTHROUGH:
-		err_str = "PASSTHROUGH";
+		err_str = "A user-configured callback refused to act";
 		break;
 	case GIT_ITEROVER:
-		err_str = "ITEROVER";
+		err_str = "Signals end of iteration with iterator";
+		break;
+	case GIT_RETRY:
+		err_str = "Internal only";
+		break;
+	case GIT_EMISMATCH:
+		err_str = "Hashsum mismatch in object";
+		break;
+	case GIT_EINDEXDIRTY:
+		err_str = "Unsaved changes in the index would be overwritten";
+		break;
+	case GIT_EAPPLYFAIL:
+		err_str = "Patch application failed";
+		break;
+	case GIT_EOWNER:
+		err_str = "The object is not owned by the current user";
+		break;
+	case GIT_TIMEOUT:
+		err_str = "The operation timed out";
 		break;
 	case GIT_OK:
 	default:
@@ -2016,6 +3574,25 @@ static int Repository__head_detached__meth(lua_State *L) {
   rc_git_repository_head_detached_idx1 = git_repository_head_detached(this_idx1);
   lua_pushboolean(L, rc_git_repository_head_detached_idx1);
   return 1;
+}
+
+/* method: set_head_detached */
+static int Repository__set_head_detached__meth(lua_State *L) {
+  Repository * this_idx1;
+  OID * committish_idx2;
+  GitError err_idx1 = GIT_OK;
+  this_idx1 = obj_type_Repository_check(L,1);
+  committish_idx2 = lua_touserdata(L,2);
+  err_idx1 = git_repository_set_head_detached(this_idx1, committish_idx2);
+  /* check for error. */
+  if((GIT_OK != err_idx1)) {
+    lua_pushnil(L);
+      error_code__GitError__push(L, err_idx1);
+  } else {
+    lua_pushboolean(L, 1);
+    lua_pushnil(L);
+  }
+  return 2;
 }
 
 /* method: head_unborn */
@@ -2169,6 +3746,67 @@ static int Repository__set_index__meth(lua_State *L) {
   index_idx2 = obj_type_Index_check(L,2);
   git_repository_set_index(this_idx1, index_idx2);
   return 0;
+}
+
+/* method: checkout_tree */
+static int Repository__checkout_tree__meth(lua_State *L) {
+  Repository * this_idx1;
+  const Object * treeish_idx2;
+  const CheckoutOptions * opts_idx3;
+  GitError err_idx1 = GIT_OK;
+  this_idx1 = obj_type_Repository_check(L,1);
+  treeish_idx2 = obj_type_Object_check(L,2);
+  opts_idx3 = obj_type_CheckoutOptions_check(L,3);
+  err_idx1 = git_checkout_tree(this_idx1, treeish_idx2, opts_idx3);
+  /* check for error. */
+  if((GIT_OK != err_idx1)) {
+    lua_pushnil(L);
+      error_code__GitError__push(L, err_idx1);
+  } else {
+    lua_pushboolean(L, 1);
+    lua_pushnil(L);
+  }
+  return 2;
+}
+
+/* method: checkout_head */
+static int Repository__checkout_head__meth(lua_State *L) {
+  Repository * this_idx1;
+  const CheckoutOptions * opts_idx2;
+  GitError err_idx1 = GIT_OK;
+  this_idx1 = obj_type_Repository_check(L,1);
+  opts_idx2 = obj_type_CheckoutOptions_check(L,2);
+  err_idx1 = git_checkout_head(this_idx1, opts_idx2);
+  /* check for error. */
+  if((GIT_OK != err_idx1)) {
+    lua_pushnil(L);
+      error_code__GitError__push(L, err_idx1);
+  } else {
+    lua_pushboolean(L, 1);
+    lua_pushnil(L);
+  }
+  return 2;
+}
+
+/* method: checkout_index */
+static int Repository__checkout_index__meth(lua_State *L) {
+  Repository * this_idx1;
+  Index * index_idx2;
+  const CheckoutOptions * opts_idx3;
+  GitError err_idx1 = GIT_OK;
+  this_idx1 = obj_type_Repository_check(L,1);
+  index_idx2 = obj_type_Index_check(L,2);
+  opts_idx3 = obj_type_CheckoutOptions_check(L,3);
+  err_idx1 = git_checkout_index(this_idx1, index_idx2, opts_idx3);
+  /* check for error. */
+  if((GIT_OK != err_idx1)) {
+    lua_pushnil(L);
+      error_code__GitError__push(L, err_idx1);
+  } else {
+    lua_pushboolean(L, 1);
+    lua_pushnil(L);
+  }
+  return 2;
 }
 
 /* method: new */
@@ -3298,6 +4936,28 @@ static int IndexEntry__set_mtime__meth(lua_State *L) {
   return 0;
 }
 
+/* method: set_mode */
+static int IndexEntry__set_mode__meth(lua_State *L) {
+  IndexEntry * this_idx1;
+  unsigned int mode_idx2;
+  this_idx1 = obj_type_IndexEntry_check(L,1);
+  mode_idx2 = luaL_checkinteger(L,2);
+		this_idx1->mode = mode_idx2;
+
+  return 0;
+}
+
+/* method: set_id */
+static int IndexEntry__set_id__meth(lua_State *L) {
+  IndexEntry * this_idx1;
+  OID id_idx2;
+  this_idx1 = obj_type_IndexEntry_check(L,1);
+  id_idx2 = obj_type_OID_check(L,2);
+	git_oid_cpy(&this_idx1->id, &id_idx2);
+
+  return 0;
+}
+
 /* method: path */
 static int IndexEntry__path__meth(lua_State *L) {
   IndexEntry * this_idx1;
@@ -3467,6 +5127,26 @@ ret_idx1 = this_idx1->path;
   return 1;
 }
 
+/* method: revparse_single */
+static int Object__revparse_single__meth(lua_State *L) {
+  Repository * repo_idx1;
+  size_t spec_len_idx2;
+  const char * spec_idx2;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  Object * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  repo_idx1 = obj_type_Repository_check(L,1);
+  spec_idx2 = luaL_checklstring(L,2,&(spec_len_idx2));
+  err_idx2 = git_revparse_single(&(this_idx1), repo_idx1, spec_idx2);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_Object_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
 /* method: free */
 static int Object__free__meth(lua_State *L) {
   int this_flags_idx1 = 0;
@@ -3536,14 +5216,14 @@ static void dyn_caster_Object(void **obj, obj_type **type) {
   case GIT_OBJ_COMMIT:
     *type = &(obj_type_Commit);
     break;
-  case GIT_OBJ_TAG:
-    *type = &(obj_type_Tag);
-    break;
   case GIT_OBJ_BLOB:
     *type = &(obj_type_Blob);
     break;
   case GIT_OBJ_TREE:
     *type = &(obj_type_Tree);
+    break;
+  case GIT_OBJ_TAG:
+    *type = &(obj_type_Tag);
     break;
   default:
     break;
@@ -3969,6 +5649,36 @@ static int Tree__entry_byindex__meth(lua_State *L) {
   return 1;
 }
 
+/* method: bypath */
+static int TreeEntry__bypath__meth(lua_State *L) {
+  const Tree * tree_idx1;
+  size_t path_len_idx2;
+  const char * path_idx2;
+  int this_flags_idx1 = OBJ_UDATA_FLAG_OWN;
+  TreeEntry * this_idx1;
+  GitError err_idx2 = GIT_OK;
+  tree_idx1 = obj_type_Tree_check(L,1);
+  path_idx2 = luaL_checklstring(L,2,&(path_len_idx2));
+  err_idx2 = git_tree_entry_bypath(&(this_idx1), tree_idx1, path_idx2);
+  if(!(GIT_OK != err_idx2)) {
+    obj_type_TreeEntry_push(L, this_idx1, this_flags_idx1);
+  } else {
+    lua_pushnil(L);
+  }
+  error_code__GitError__push(L, err_idx2);
+  return 2;
+}
+
+/* method: free */
+static int TreeEntry__free__meth(lua_State *L) {
+  int this_flags_idx1 = 0;
+  TreeEntry * this_idx1;
+  this_idx1 = obj_type_TreeEntry_delete(L,1,&(this_flags_idx1));
+  if(!(this_flags_idx1 & OBJ_UDATA_FLAG_OWN)) { return 0; }
+  git_tree_entry_free(this_idx1);
+  return 0;
+}
+
 /* method: name */
 static int TreeEntry__name__meth(lua_State *L) {
   TreeEntry * this_idx1;
@@ -4361,6 +6071,552 @@ static int Reference__list__func(lua_State *L) {
 
 
 
+static const luaL_Reg obj_CheckoutOptions_pub_funcs[] = {
+  {"init", CheckoutOptions__init__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_CheckoutOptions_methods[] = {
+  {"set_checkout_strategy", CheckoutOptions__set_checkout_strategy__meth},
+  {"set_disable_filters", CheckoutOptions__set_disable_filters__meth},
+  {"set_dir_mode", CheckoutOptions__set_dir_mode__meth},
+  {"set_file_mode", CheckoutOptions__set_file_mode__meth},
+  {"set_file_open_flags", CheckoutOptions__set_file_open_flags__meth},
+  {"set_notify_flags", CheckoutOptions__set_notify_flags__meth},
+  {"paths", CheckoutOptions__paths__meth},
+  {"set_paths", CheckoutOptions__set_paths__meth},
+  {"set_baseline", CheckoutOptions__set_baseline__meth},
+  {"set_baseline_index", CheckoutOptions__set_baseline_index__meth},
+  {"set_target_directory", CheckoutOptions__set_target_directory__meth},
+  {"set_ancestor_label", CheckoutOptions__set_ancestor_label__meth},
+  {"set_our_label", CheckoutOptions__set_our_label__meth},
+  {"set_their_label", CheckoutOptions__set_their_label__meth},
+  {"version", CheckoutOptions__version__meth},
+  {"checkout_strategy", CheckoutOptions__checkout_strategy__meth},
+  {"disable_filters", CheckoutOptions__disable_filters__meth},
+  {"dir_mode", CheckoutOptions__dir_mode__meth},
+  {"file_mode", CheckoutOptions__file_mode__meth},
+  {"file_open_flags", CheckoutOptions__file_open_flags__meth},
+  {"notify_flags", CheckoutOptions__notify_flags__meth},
+  {"baseline", CheckoutOptions__baseline__meth},
+  {"baseline_index", CheckoutOptions__baseline_index__meth},
+  {"target_directory", CheckoutOptions__target_directory__meth},
+  {"ancestor_label", CheckoutOptions__ancestor_label__meth},
+  {"our_label", CheckoutOptions__our_label__meth},
+  {"their_label", CheckoutOptions__their_label__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_CheckoutOptions_metas[] = {
+  {"__gc", CheckoutOptions__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_CheckoutOptions_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_CheckoutOptions_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_CheckoutOptions_constants[] = {
+  {"NONE", NULL, 1073741824, CONST_NUMBER},
+  {"DONT_OVERWRITE_IGNORED", NULL, 524288, CONST_NUMBER},
+  {"USE_THEIRS", NULL, 4096, CONST_NUMBER},
+  {"UPDATE_SUBMODULES", NULL, 65536, CONST_NUMBER},
+  {"CONFLICT_STYLE_DIFF3", NULL, 2097152, CONST_NUMBER},
+  {"UPDATE_SUBMODULES_IF_CHANGED", NULL, 131072, CONST_NUMBER},
+  {"DONT_UPDATE_INDEX", NULL, 256, CONST_NUMBER},
+  {"VERSION", NULL, 1, CONST_NUMBER},
+  {"REMOVE_UNTRACKED", NULL, 32, CONST_NUMBER},
+  {"SKIP_UNMERGED", NULL, 1024, CONST_NUMBER},
+  {"USE_OURS", NULL, 2048, CONST_NUMBER},
+  {"DISABLE_PATHSPEC_MATCH", NULL, 8192, CONST_NUMBER},
+  {"DONT_REMOVE_EXISTING", NULL, 4194304, CONST_NUMBER},
+  {"NO_REFRESH", NULL, 512, CONST_NUMBER},
+  {"ALLOW_CONFLICTS", NULL, 16, CONST_NUMBER},
+  {"CONFLICT_STYLE_ZDIFF3", NULL, 33554432, CONST_NUMBER},
+  {"SAFE", NULL, 0, CONST_NUMBER},
+  {"DRY_RUN", NULL, 16777216, CONST_NUMBER},
+  {"DONT_WRITE_INDEX", NULL, 8388608, CONST_NUMBER},
+  {"CONFLICT_STYLE_MERGE", NULL, 1048576, CONST_NUMBER},
+  {"UPDATE_ONLY", NULL, 128, CONST_NUMBER},
+  {"RECREATE_MISSING", NULL, 4, CONST_NUMBER},
+  {"SKIP_LOCKED_DIRECTORIES", NULL, 262144, CONST_NUMBER},
+  {"REMOVE_IGNORED", NULL, 64, CONST_NUMBER},
+  {"FORCE", NULL, 2, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_CheckoutOptions_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFindOptions_pub_funcs[] = {
+  {"init", DiffFindOptions__init__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFindOptions_methods[] = {
+  {"set_flags", DiffFindOptions__set_flags__meth},
+  {"set_rename_threshold", DiffFindOptions__set_rename_threshold__meth},
+  {"set_rename_from_rewrite_threshold", DiffFindOptions__set_rename_from_rewrite_threshold__meth},
+  {"set_copy_threshold", DiffFindOptions__set_copy_threshold__meth},
+  {"set_break_rewrite_threshold", DiffFindOptions__set_break_rewrite_threshold__meth},
+  {"set_rename_limit", DiffFindOptions__set_rename_limit__meth},
+  {"version", DiffFindOptions__version__meth},
+  {"flags", DiffFindOptions__flags__meth},
+  {"rename_threshold", DiffFindOptions__rename_threshold__meth},
+  {"rename_from_rewrite_threshold", DiffFindOptions__rename_from_rewrite_threshold__meth},
+  {"copy_threshold", DiffFindOptions__copy_threshold__meth},
+  {"break_rewrite_threshold", DiffFindOptions__break_rewrite_threshold__meth},
+  {"rename_limit", DiffFindOptions__rename_limit__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFindOptions_metas[] = {
+  {"__gc", DiffFindOptions__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_DiffFindOptions_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_DiffFindOptions_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_DiffFindOptions_constants[] = {
+  {"REWRITES", NULL, 16, CONST_NUMBER},
+  {"REMOVE_UNMODIFIED", NULL, 65536, CONST_NUMBER},
+  {"FOR_UNTRACKED", NULL, 64, CONST_NUMBER},
+  {"EXACT_MATCH_ONLY", NULL, 16384, CONST_NUMBER},
+  {"ALL", NULL, 255, CONST_NUMBER},
+  {"COPIES_FROM_UNMODIFIED", NULL, 8, CONST_NUMBER},
+  {"VERSION", NULL, 1, CONST_NUMBER},
+  {"RENAMES_FROM_REWRITES", NULL, 2, CONST_NUMBER},
+  {"BREAK_REWRITES", NULL, 32, CONST_NUMBER},
+  {"DONT_IGNORE_WHITESPACE", NULL, 8192, CONST_NUMBER},
+  {"AND_BREAK_REWRITES", NULL, 48, CONST_NUMBER},
+  {"BY_CONFIG", NULL, 0, CONST_NUMBER},
+  {"IGNORE_WHITESPACE", NULL, 4096, CONST_NUMBER},
+  {"BREAK_REWRITES_FOR_RENAMES_ONLY", NULL, 32768, CONST_NUMBER},
+  {"RENAMES", NULL, 1, CONST_NUMBER},
+  {"COPIES", NULL, 4, CONST_NUMBER},
+  {"IGNORE_LEADING_WHITESPACE", NULL, 0, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_DiffFindOptions_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffOptions_pub_funcs[] = {
+  {"init", DiffOptions__init__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffOptions_methods[] = {
+  {"set_flags", DiffOptions__set_flags__meth},
+  {"set_ignore_submodules", DiffOptions__set_ignore_submodules__meth},
+  {"pathspec", DiffOptions__pathspec__meth},
+  {"set_pathspec", DiffOptions__set_pathspec__meth},
+  {"set_context_lines", DiffOptions__set_context_lines__meth},
+  {"set_interhunk_lines", DiffOptions__set_interhunk_lines__meth},
+  {"set_oid_type", DiffOptions__set_oid_type__meth},
+  {"set_id_abbrev", DiffOptions__set_id_abbrev__meth},
+  {"set_max_size", DiffOptions__set_max_size__meth},
+  {"set_old_prefix", DiffOptions__set_old_prefix__meth},
+  {"set_new_prefix", DiffOptions__set_new_prefix__meth},
+  {"version", DiffOptions__version__meth},
+  {"flags", DiffOptions__flags__meth},
+  {"ignore_submodules", DiffOptions__ignore_submodules__meth},
+  {"context_lines", DiffOptions__context_lines__meth},
+  {"interhunk_lines", DiffOptions__interhunk_lines__meth},
+  {"oid_type", DiffOptions__oid_type__meth},
+  {"id_abbrev", DiffOptions__id_abbrev__meth},
+  {"max_size", DiffOptions__max_size__meth},
+  {"old_prefix", DiffOptions__old_prefix__meth},
+  {"new_prefix", DiffOptions__new_prefix__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffOptions_metas[] = {
+  {"__gc", DiffOptions__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_DiffOptions_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_DiffOptions_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_DiffOptions_constants[] = {
+  {"SUBMODULE_IGNORE_UNTRACKED", NULL, 2, CONST_NUMBER},
+  {"SHOW_UNMODIFIED", NULL, 67108864, CONST_NUMBER},
+  {"SHOW_BINARY", NULL, 1073741824, CONST_NUMBER},
+  {"VERSION", NULL, 1, CONST_NUMBER},
+  {"INCLUDE_UNREADABLE_AS_UNTRACKED", NULL, 131072, CONST_NUMBER},
+  {"REVERSE", NULL, 1, CONST_NUMBER},
+  {"FORCE_TEXT", NULL, 1048576, CONST_NUMBER},
+  {"FORCE_BINARY", NULL, 2097152, CONST_NUMBER},
+  {"SUBMODULE_IGNORE_ALL", NULL, 4, CONST_NUMBER},
+  {"IGNORE_FILEMODE", NULL, 256, CONST_NUMBER},
+  {"INCLUDE_UNTRACKED", NULL, 8, CONST_NUMBER},
+  {"PATIENCE", NULL, 268435456, CONST_NUMBER},
+  {"IGNORE_CASE", NULL, 1024, CONST_NUMBER},
+  {"SUBMODULE_IGNORE_DIRTY", NULL, 3, CONST_NUMBER},
+  {"INCLUDE_IGNORED", NULL, 2, CONST_NUMBER},
+  {"DISABLE_PATHSPEC_MATCH", NULL, 4096, CONST_NUMBER},
+  {"UPDATE_INDEX", NULL, 32768, CONST_NUMBER},
+  {"INCLUDE_CASECHANGE", NULL, 2048, CONST_NUMBER},
+  {"INCLUDE_UNMODIFIED", NULL, 32, CONST_NUMBER},
+  {"RECURSE_UNTRACKED_DIRS", NULL, 16, CONST_NUMBER},
+  {"RECURSE_IGNORED_DIRS", NULL, 4, CONST_NUMBER},
+  {"INCLUDE_TYPECHANGE", NULL, 64, CONST_NUMBER},
+  {"SKIP_BINARY_CHECK", NULL, 8192, CONST_NUMBER},
+  {"NORMAL", NULL, 0, CONST_NUMBER},
+  {"IGNORE_WHITESPACE_EOL", NULL, 16777216, CONST_NUMBER},
+  {"ENABLE_FAST_UNTRACKED_DIRS", NULL, 16384, CONST_NUMBER},
+  {"IGNORE_SUBMODULES", NULL, 512, CONST_NUMBER},
+  {"INCLUDE_UNREADABLE", NULL, 65536, CONST_NUMBER},
+  {"INDENT_HEURISTIC", NULL, 262144, CONST_NUMBER},
+  {"MINIMAL", NULL, 536870912, CONST_NUMBER},
+  {"SUBMODULE_IGNORE_NONE", NULL, 1, CONST_NUMBER},
+  {"IGNORE_BLANK_LINES", NULL, 524288, CONST_NUMBER},
+  {"IGNORE_WHITESPACE", NULL, 4194304, CONST_NUMBER},
+  {"INCLUDE_TYPECHANGE_TREES", NULL, 128, CONST_NUMBER},
+  {"IGNORE_WHITESPACE_CHANGE", NULL, 8388608, CONST_NUMBER},
+  {"SUBMODULE_IGNORE_UNSPECIFIED", NULL, -1, CONST_NUMBER},
+  {"SHOW_UNTRACKED_CONTENT", NULL, 33554432, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_DiffOptions_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffDelta_pub_funcs[] = {
+  {"get", DiffDelta__get__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffDelta_methods[] = {
+  {"old_file", DiffDelta__old_file__meth},
+  {"new_file", DiffDelta__new_file__meth},
+  {"status", DiffDelta__status__meth},
+  {"flags", DiffDelta__flags__meth},
+  {"similarity", DiffDelta__similarity__meth},
+  {"nfiles", DiffDelta__nfiles__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffDelta_metas[] = {
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_DiffDelta_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_DiffDelta_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_DiffDelta_constants[] = {
+  {"UNREADABLE", NULL, 9, CONST_NUMBER},
+  {"UNMODIFIED", NULL, 0, CONST_NUMBER},
+  {"RENAMED", NULL, 4, CONST_NUMBER},
+  {"COPIED", NULL, 5, CONST_NUMBER},
+  {"CONFLICTED", NULL, 10, CONST_NUMBER},
+  {"DELETED", NULL, 2, CONST_NUMBER},
+  {"MODIFIED", NULL, 3, CONST_NUMBER},
+  {"IGNORED", NULL, 6, CONST_NUMBER},
+  {"UNTRACKED", NULL, 7, CONST_NUMBER},
+  {"TYPECHANGE", NULL, 8, CONST_NUMBER},
+  {"ADDED", NULL, 1, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_DiffDelta_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffStats_pub_funcs[] = {
+  {"get", DiffStats__get__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffStats_methods[] = {
+  {"insertions", DiffStats__insertions__meth},
+  {"deletions", DiffStats__deletions__meth},
+  {"files_changed", DiffStats__files_changed__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffStats_metas[] = {
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_DiffStats_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_DiffStats_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_DiffStats_constants[] = {
+  {"NONE", NULL, 0, CONST_NUMBER},
+  {"INCLUDE_SUMMARY", NULL, 8, CONST_NUMBER},
+  {"SHORT", NULL, 2, CONST_NUMBER},
+  {"NUMBER", NULL, 4, CONST_NUMBER},
+  {"FULL", NULL, 1, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_DiffStats_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFile_pub_funcs[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFile_methods[] = {
+  {"id", DiffFile__id__meth},
+  {"path", DiffFile__path__meth},
+  {"size", DiffFile__size__meth},
+  {"flags", DiffFile__flags__meth},
+  {"mode", DiffFile__mode__meth},
+  {"id_abbrev", DiffFile__id_abbrev__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_DiffFile_metas[] = {
+  {"__gc", DiffFile__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_DiffFile_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_DiffFile_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_DiffFile_constants[] = {
+  {"BINARY", NULL, 1, CONST_NUMBER},
+  {"NOT_BINARY", NULL, 2, CONST_NUMBER},
+  {"VALID_SIZE", NULL, 16, CONST_NUMBER},
+  {"EXISTS", NULL, 8, CONST_NUMBER},
+  {"VALID_ID", NULL, 4, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_DiffFile_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_Diff_pub_funcs[] = {
+  {"index_to_workdir", Diff__index_to_workdir__meth},
+  {"tree_to_index", Diff__tree_to_index__meth},
+  {"tree_to_workdir_with_index", Diff__tree_to_workdir_with_index__meth},
+  {"tree_to_tree", Diff__tree_to_tree__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_Diff_methods[] = {
+  {"num", Diff__num__meth},
+  {"find_similar", Diff__find_similar__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_Diff_metas[] = {
+  {"__gc", Diff__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_Diff_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_Diff_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_Diff_constants[] = {
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_Diff_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusOptions_pub_funcs[] = {
+  {"init", StatusOptions__init__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusOptions_methods[] = {
+  {"set_show", StatusOptions__set_show__meth},
+  {"set_flags", StatusOptions__set_flags__meth},
+  {"pathspec", StatusOptions__pathspec__meth},
+  {"set_pathspec", StatusOptions__set_pathspec__meth},
+  {"set_baseline", StatusOptions__set_baseline__meth},
+  {"set_rename_threshold", StatusOptions__set_rename_threshold__meth},
+  {"version", StatusOptions__version__meth},
+  {"show", StatusOptions__show__meth},
+  {"flags", StatusOptions__flags__meth},
+  {"baseline", StatusOptions__baseline__meth},
+  {"rename_threshold", StatusOptions__rename_threshold__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusOptions_metas[] = {
+  {"__gc", StatusOptions__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_StatusOptions_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_StatusOptions_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_StatusOptions_constants[] = {
+  {"SHOW_INDEX_ONLY", NULL, 1, CONST_NUMBER},
+  {"SORT_CASE_SENSITIVELY", NULL, 512, CONST_NUMBER},
+  {"DISABLE_PATHSPEC_MATCH", NULL, 32, CONST_NUMBER},
+  {"UPDATE_INDEX", NULL, 8192, CONST_NUMBER},
+  {"INCLUDE_UNMODIFIED", NULL, 4, CONST_NUMBER},
+  {"VERSION", NULL, 1, CONST_NUMBER},
+  {"SORT_CASE_INSENSITIVELY", NULL, 1024, CONST_NUMBER},
+  {"SHOW_WORKDIR_ONLY", NULL, 2, CONST_NUMBER},
+  {"INCLUDE_UNREADABLE_AS_UNTRACKED", NULL, 32768, CONST_NUMBER},
+  {"RECURSE_IGNORED_DIRS", NULL, 64, CONST_NUMBER},
+  {"INCLUDE_UNREADABLE", NULL, 16384, CONST_NUMBER},
+  {"RENAMES_INDEX_TO_WORKDIR", NULL, 256, CONST_NUMBER},
+  {"SHOW_INDEX_AND_WORKDIR", NULL, 0, CONST_NUMBER},
+  {"INCLUDE_UNTRACKED", NULL, 1, CONST_NUMBER},
+  {"INCLUDE_IGNORED", NULL, 2, CONST_NUMBER},
+  {"RECURSE_UNTRACKED_DIRS", NULL, 16, CONST_NUMBER},
+  {"RENAMES_HEAD_TO_INDEX", NULL, 128, CONST_NUMBER},
+  {"RENAMES_FROM_REWRITES", NULL, 2048, CONST_NUMBER},
+  {"NO_REFRESH", NULL, 4096, CONST_NUMBER},
+  {"EXCLUDE_SUBMODULES", NULL, 8, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_StatusOptions_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusList_pub_funcs[] = {
+  {"new", StatusList__new__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusList_methods[] = {
+  {"entrycount", StatusList__entrycount__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusList_metas[] = {
+  {"__gc", StatusList__delete__meth},
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_StatusList_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_StatusList_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_StatusList_constants[] = {
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_StatusList_implements[] = {
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusEntry_pub_funcs[] = {
+  {"byindex", StatusEntry__byindex__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusEntry_methods[] = {
+  {"status", StatusEntry__status__meth},
+  {"head_to_index", StatusEntry__head_to_index__meth},
+  {"index_to_workdir", StatusEntry__index_to_workdir__meth},
+  {NULL, NULL}
+};
+
+static const luaL_Reg obj_StatusEntry_metas[] = {
+  {"__tostring", obj_udata_default_tostring},
+  {"__eq", obj_udata_default_equal},
+  {NULL, NULL}
+};
+
+static const obj_base obj_StatusEntry_bases[] = {
+  {-1, NULL}
+};
+
+static const obj_field obj_StatusEntry_fields[] = {
+  {NULL, 0, 0, 0}
+};
+
+static const obj_const obj_StatusEntry_constants[] = {
+  {"INDEX_DELETED", NULL, 4, CONST_NUMBER},
+  {"INDEX_NEW", NULL, 1, CONST_NUMBER},
+  {"INDEX_MODIFIED", NULL, 2, CONST_NUMBER},
+  {"IGNORED", NULL, 16384, CONST_NUMBER},
+  {"CONFLICTED", NULL, 32768, CONST_NUMBER},
+  {"WT_UNREADABLE", NULL, 4096, CONST_NUMBER},
+  {"INDEX_RENAMED", NULL, 8, CONST_NUMBER},
+  {"WT_DELETED", NULL, 512, CONST_NUMBER},
+  {"WT_TYPECHANGE", NULL, 1024, CONST_NUMBER},
+  {"WT_RENAMED", NULL, 2048, CONST_NUMBER},
+  {"WT_NEW", NULL, 128, CONST_NUMBER},
+  {"WT_MODIFIED", NULL, 256, CONST_NUMBER},
+  {"INDEX_TYPECHANGE", NULL, 16, CONST_NUMBER},
+  {"CURRENT", NULL, 0, CONST_NUMBER},
+  {NULL, NULL, 0.0 , 0}
+};
+
+static const reg_impl obj_StatusEntry_implements[] = {
+  {NULL, NULL}
+};
+
 static const luaL_Reg obj_StrArray_pub_funcs[] = {
   {"new", StrArray__new__meth},
   {NULL, NULL}
@@ -4369,6 +6625,7 @@ static const luaL_Reg obj_StrArray_pub_funcs[] = {
 static const luaL_Reg obj_StrArray_methods[] = {
   {"free", StrArray__free__meth},
   {"str", StrArray__str__meth},
+  {"set_str", StrArray__set_str__meth},
   {"get_array", StrArray__get_array__meth},
   {"count", StrArray__count__meth},
   {NULL, NULL}
@@ -4406,6 +6663,7 @@ static const luaL_Reg obj_Repository_pub_funcs[] = {
 static const luaL_Reg obj_Repository_methods[] = {
   {"head", Repository__head__meth},
   {"head_detached", Repository__head_detached__meth},
+  {"set_head_detached", Repository__set_head_detached__meth},
   {"head_unborn", Repository__head_unborn__meth},
   {"is_empty", Repository__is_empty__meth},
   {"is_bare", Repository__is_bare__meth},
@@ -4418,6 +6676,9 @@ static const luaL_Reg obj_Repository_methods[] = {
   {"set_odb", Repository__set_odb__meth},
   {"index", Repository__index__meth},
   {"set_index", Repository__set_index__meth},
+  {"checkout_tree", Repository__checkout_tree__meth},
+  {"checkout_head", Repository__checkout_head__meth},
+  {"checkout_index", Repository__checkout_index__meth},
   {NULL, NULL}
 };
 
@@ -4552,14 +6813,14 @@ static const obj_field obj_OID_fields[] = {
 };
 
 static const obj_const obj_OID_constants[] = {
-#ifdef GIT_OID_HEXSZ
-  {"HEXSZ", NULL, GIT_OID_HEXSZ, CONST_NUMBER},
-#endif
 #ifdef GIT_OID_RAWSZ
   {"RAWSZ", NULL, GIT_OID_RAWSZ, CONST_NUMBER},
 #endif
 #ifdef GIT_OID_MINPREFIXLEN
   {"MINPREFIXLEN", NULL, GIT_OID_MINPREFIXLEN, CONST_NUMBER},
+#endif
+#ifdef GIT_OID_HEXSZ
+  {"HEXSZ", NULL, GIT_OID_HEXSZ, CONST_NUMBER},
 #endif
   {NULL, NULL, 0.0 , 0}
 };
@@ -4735,6 +6996,8 @@ static const luaL_Reg obj_IndexEntry_methods[] = {
   {"set_ctime", IndexEntry__set_ctime__meth},
   {"mtime", IndexEntry__mtime__meth},
   {"set_mtime", IndexEntry__set_mtime__meth},
+  {"set_mode", IndexEntry__set_mode__meth},
+  {"set_id", IndexEntry__set_id__meth},
   {"path", IndexEntry__path__meth},
   {"set_path", IndexEntry__set_path__meth},
   {"dev", IndexEntry__dev__meth},
@@ -4765,10 +7028,10 @@ static const obj_field obj_IndexEntry_fields[] = {
 };
 
 static const obj_const obj_IndexEntry_constants[] = {
-  {"NAMEMASK", NULL, 4095, CONST_NUMBER},
-  {"STAGEMASK", NULL, 12288, CONST_NUMBER},
   {"EXTENDED", NULL, 16384, CONST_NUMBER},
+  {"STAGEMASK", NULL, 12288, CONST_NUMBER},
   {"VALID", NULL, 32768, CONST_NUMBER},
+  {"NAMEMASK", NULL, 4095, CONST_NUMBER},
   {"STAGESHIFT", NULL, 12, CONST_NUMBER},
   {NULL, NULL, 0.0 , 0}
 };
@@ -4811,6 +7074,7 @@ static const reg_impl obj_IndexEntryUnmerged_implements[] = {
 };
 
 static const luaL_Reg obj_Object_pub_funcs[] = {
+  {"revparse_single", Object__revparse_single__meth},
   {"type2string", Object__type2string__func},
   {"string2type", Object__string2type__func},
   {NULL, NULL}
@@ -4855,9 +7119,9 @@ static const luaL_Reg obj_Blob_pub_funcs[] = {
 };
 
 static const luaL_Reg obj_Blob_methods[] = {
-  {"id", Object__id__meth},
-  {"free", Object__free__meth},
   {"type", Object__type__meth},
+  {"free", Object__free__meth},
+  {"id", Object__id__meth},
   {"owner", Object__owner__meth},
   {"rawcontent", Blob__rawcontent__meth},
   {"rawsize", Blob__rawsize__meth},
@@ -4872,7 +7136,7 @@ static const luaL_Reg obj_Blob_metas[] = {
 };
 
 static const obj_base obj_Blob_bases[] = {
-  {11, NULL},
+  {21, NULL},
   {-1, NULL}
 };
 
@@ -4931,8 +7195,8 @@ static const luaL_Reg obj_Commit_pub_funcs[] = {
 };
 
 static const luaL_Reg obj_Commit_methods[] = {
-  {"free", Object__free__meth},
   {"type", Object__type__meth},
+  {"free", Object__free__meth},
   {"owner", Object__owner__meth},
   {"id", Commit__id__meth},
   {"message_encoding", Commit__message_encoding__meth},
@@ -4955,7 +7219,7 @@ static const luaL_Reg obj_Commit_metas[] = {
 };
 
 static const obj_base obj_Commit_bases[] = {
-  {11, NULL},
+  {21, NULL},
   {-1, NULL}
 };
 
@@ -4977,9 +7241,9 @@ static const luaL_Reg obj_Tree_pub_funcs[] = {
 };
 
 static const luaL_Reg obj_Tree_methods[] = {
-  {"id", Object__id__meth},
-  {"free", Object__free__meth},
   {"type", Object__type__meth},
+  {"free", Object__free__meth},
+  {"id", Object__id__meth},
   {"owner", Object__owner__meth},
   {"entrycount", Tree__entrycount__meth},
   {"entry_byname", Tree__entry_byname__meth},
@@ -4995,7 +7259,7 @@ static const luaL_Reg obj_Tree_metas[] = {
 };
 
 static const obj_base obj_Tree_bases[] = {
-  {11, NULL},
+  {21, NULL},
   {-1, NULL}
 };
 
@@ -5012,10 +7276,12 @@ static const reg_impl obj_Tree_implements[] = {
 };
 
 static const luaL_Reg obj_TreeEntry_pub_funcs[] = {
+  {"bypath", TreeEntry__bypath__meth},
   {NULL, NULL}
 };
 
 static const luaL_Reg obj_TreeEntry_methods[] = {
+  {"free", TreeEntry__free__meth},
   {"name", TreeEntry__name__meth},
   {"filemode", TreeEntry__filemode__meth},
   {"id", TreeEntry__id__meth},
@@ -5024,6 +7290,7 @@ static const luaL_Reg obj_TreeEntry_methods[] = {
 };
 
 static const luaL_Reg obj_TreeEntry_metas[] = {
+  {"__gc", TreeEntry__free__meth},
   {"__tostring", obj_udata_default_tostring},
   {"__eq", obj_udata_default_equal},
   {NULL, NULL}
@@ -5051,9 +7318,9 @@ static const luaL_Reg obj_Tag_pub_funcs[] = {
 };
 
 static const luaL_Reg obj_Tag_methods[] = {
-  {"id", Object__id__meth},
-  {"free", Object__free__meth},
   {"type", Object__type__meth},
+  {"free", Object__free__meth},
+  {"id", Object__id__meth},
   {"owner", Object__owner__meth},
   {"target", Tag__target__meth},
   {"name", Tag__name__meth},
@@ -5070,7 +7337,7 @@ static const luaL_Reg obj_Tag_metas[] = {
 };
 
 static const obj_base obj_Tag_bases[] = {
-  {11, NULL},
+  {21, NULL},
   {-1, NULL}
 };
 
@@ -5118,9 +7385,9 @@ static const obj_field obj_RevWalk_fields[] = {
 };
 
 static const obj_const obj_RevWalk_constants[] = {
+  {"SORT_NONE", NULL, 0, CONST_NUMBER},
   {"SORT_TIME", NULL, 2, CONST_NUMBER},
   {"SORT_REVERSE", NULL, 4, CONST_NUMBER},
-  {"SORT_NONE", NULL, 0, CONST_NUMBER},
   {"SORT_TOPOLOGICAL", NULL, 1, CONST_NUMBER},
   {NULL, NULL, 0.0 , 0}
 };
@@ -5175,42 +7442,52 @@ static const luaL_Reg git2_function[] = {
 };
 
 static const obj_const git2_constants[] = {
-#ifdef GIT_ENOTFOUND
-  {"ENOTFOUND", NULL, GIT_ENOTFOUND, CONST_NUMBER},
+#ifdef GIT_REVWALKOVER
+  {"REVWALKOVER", NULL, GIT_REVWALKOVER, CONST_NUMBER},
+#endif
+#ifdef GIT_ERROR
+  {"ERROR", NULL, GIT_ERROR, CONST_NUMBER},
+#endif
+  {"REF_INVALID", NULL, 0, CONST_NUMBER},
+#ifdef GIT_PASSTHROUGH
+  {"PASSTHROUGH", NULL, GIT_PASSTHROUGH, CONST_NUMBER},
+#endif
+  {"REF_SYMBOLIC", NULL, 2, CONST_NUMBER},
+#ifdef GIT_EAMBIGUOUS
+  {"EAMBIGUOUS", NULL, GIT_EAMBIGUOUS, CONST_NUMBER},
+#endif
+#ifdef GIT_OK
+  {"OK", NULL, GIT_OK, CONST_NUMBER},
+#endif
+  {"REF_PACKED", NULL, 4, CONST_NUMBER},
+  {"REF_HAS_PEEL", NULL, 8, CONST_NUMBER},
+#ifdef GIT_EBUFS
+  {"EBUFS", NULL, GIT_EBUFS, CONST_NUMBER},
 #endif
   {"REF_LISTALL", NULL, 7, CONST_NUMBER},
 #ifdef GIT_EEXISTS
   {"EEXISTS", NULL, GIT_EEXISTS, CONST_NUMBER},
 #endif
-#ifdef GIT_EAMBIGUOUS
-  {"EAMBIGUOUS", NULL, GIT_EAMBIGUOUS, CONST_NUMBER},
-#endif
-#ifdef GIT_EBUFS
-  {"EBUFS", NULL, GIT_EBUFS, CONST_NUMBER},
-#endif
-  {"REF_HAS_PEEL", NULL, 8, CONST_NUMBER},
-#ifdef GIT_PASSTHROUGH
-  {"PASSTHROUGH", NULL, GIT_PASSTHROUGH, CONST_NUMBER},
-#endif
-  {"REF_SYMBOLIC", NULL, 2, CONST_NUMBER},
-#ifdef GIT_REVWALKOVER
-  {"REVWALKOVER", NULL, GIT_REVWALKOVER, CONST_NUMBER},
-#endif
-  {"REF_INVALID", NULL, 0, CONST_NUMBER},
-#ifdef GIT_OK
-  {"OK", NULL, GIT_OK, CONST_NUMBER},
-#endif
   {"REF_OID", NULL, 1, CONST_NUMBER},
-#ifdef GIT_ERROR
-  {"ERROR", NULL, GIT_ERROR, CONST_NUMBER},
+#ifdef GIT_ENOTFOUND
+  {"ENOTFOUND", NULL, GIT_ENOTFOUND, CONST_NUMBER},
 #endif
-  {"REF_PACKED", NULL, 4, CONST_NUMBER},
   {NULL, NULL, 0.0 , 0}
 };
 
 
 
 static const reg_sub_module reg_sub_modules[] = {
+  { &(obj_type_CheckoutOptions), REG_OBJECT, obj_CheckoutOptions_pub_funcs, obj_CheckoutOptions_methods, obj_CheckoutOptions_metas, obj_CheckoutOptions_bases, obj_CheckoutOptions_fields, obj_CheckoutOptions_constants, obj_CheckoutOptions_implements, 0},
+  { &(obj_type_DiffFindOptions), REG_OBJECT, obj_DiffFindOptions_pub_funcs, obj_DiffFindOptions_methods, obj_DiffFindOptions_metas, obj_DiffFindOptions_bases, obj_DiffFindOptions_fields, obj_DiffFindOptions_constants, obj_DiffFindOptions_implements, 0},
+  { &(obj_type_DiffOptions), REG_OBJECT, obj_DiffOptions_pub_funcs, obj_DiffOptions_methods, obj_DiffOptions_metas, obj_DiffOptions_bases, obj_DiffOptions_fields, obj_DiffOptions_constants, obj_DiffOptions_implements, 0},
+  { &(obj_type_DiffDelta), REG_OBJECT, obj_DiffDelta_pub_funcs, obj_DiffDelta_methods, obj_DiffDelta_metas, obj_DiffDelta_bases, obj_DiffDelta_fields, obj_DiffDelta_constants, obj_DiffDelta_implements, 0},
+  { &(obj_type_DiffStats), REG_OBJECT, obj_DiffStats_pub_funcs, obj_DiffStats_methods, obj_DiffStats_metas, obj_DiffStats_bases, obj_DiffStats_fields, obj_DiffStats_constants, obj_DiffStats_implements, 0},
+  { &(obj_type_DiffFile), REG_OBJECT, obj_DiffFile_pub_funcs, obj_DiffFile_methods, obj_DiffFile_metas, obj_DiffFile_bases, obj_DiffFile_fields, obj_DiffFile_constants, obj_DiffFile_implements, 0},
+  { &(obj_type_Diff), REG_OBJECT, obj_Diff_pub_funcs, obj_Diff_methods, obj_Diff_metas, obj_Diff_bases, obj_Diff_fields, obj_Diff_constants, obj_Diff_implements, 0},
+  { &(obj_type_StatusOptions), REG_OBJECT, obj_StatusOptions_pub_funcs, obj_StatusOptions_methods, obj_StatusOptions_metas, obj_StatusOptions_bases, obj_StatusOptions_fields, obj_StatusOptions_constants, obj_StatusOptions_implements, 0},
+  { &(obj_type_StatusList), REG_OBJECT, obj_StatusList_pub_funcs, obj_StatusList_methods, obj_StatusList_metas, obj_StatusList_bases, obj_StatusList_fields, obj_StatusList_constants, obj_StatusList_implements, 0},
+  { &(obj_type_StatusEntry), REG_OBJECT, obj_StatusEntry_pub_funcs, obj_StatusEntry_methods, obj_StatusEntry_metas, obj_StatusEntry_bases, obj_StatusEntry_fields, obj_StatusEntry_constants, obj_StatusEntry_implements, 0},
   { &(obj_type_StrArray), REG_OBJECT, obj_StrArray_pub_funcs, obj_StrArray_methods, obj_StrArray_metas, obj_StrArray_bases, obj_StrArray_fields, obj_StrArray_constants, obj_StrArray_implements, 0},
   { &(obj_type_Repository), REG_OBJECT, obj_Repository_pub_funcs, obj_Repository_methods, obj_Repository_metas, obj_Repository_bases, obj_Repository_fields, obj_Repository_constants, obj_Repository_implements, 0},
   { &(obj_type_Config), REG_OBJECT, obj_Config_pub_funcs, obj_Config_methods, obj_Config_metas, obj_Config_bases, obj_Config_fields, obj_Config_constants, obj_Config_implements, 0},
