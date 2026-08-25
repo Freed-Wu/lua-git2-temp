@@ -63,11 +63,9 @@ typedef git_diff Diff;
 		if (rc < 0) {
 			if (out.ptr) git_buf_dispose(&out);
 			lua_pushnil(L);
-			${buf} = NULL;
 		} else {
 			lua_pushlstring(L, out.ptr ? out.ptr : "", out.size);
 			git_buf_dispose(&out);
-			${buf} = NULL;
 		}
 	]],
 	},
