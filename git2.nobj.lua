@@ -58,6 +58,9 @@ c_function "version" {
 ]],
 },
 subfiles {
+"src/blame_options.nobj.lua",
+"src/blame_hunk.nobj.lua",
+"src/blame.nobj.lua",
 "src/checkout_options.nobj.lua",
 "src/diff_find_options.nobj.lua",
 "src/diff_options.nobj.lua",
