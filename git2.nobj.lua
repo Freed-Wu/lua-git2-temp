@@ -82,6 +82,7 @@ subfiles {
 "src/index_entry_unmerged.nobj.lua",
 "src/object.nobj.lua",
 "src/blob.nobj.lua",
+"src/patch.nobj.lua",
 "src/signature.nobj.lua",
 "src/commit.nobj.lua",
 "src/tree.nobj.lua",
