@@ -18,34 +18,46 @@
 -- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 -- THE SOFTWARE.
 
-object "Blob" {
+object "Patch" {
 	c_source [[
-typedef git_blob Blob;
+typedef git_patch Patch;
 ]],
-	extends "Object",
-	constructor "lookup" {
-		c_call { "GitError", "err" } "git_blob_lookup"
-			{ "Blob *", "&this", "Repository *", "repo", "OID", "&id" },
+	constructor "from_diff" {
+		c_call { "GitError", "err" } "git_patch_from_diff"
+			{ "Patch *", "&this>1", "Diff *", "diff", "size_t", "idx" },
 	},
-	c_function "from_disk" {
-		c_call { "GitError", "err>2" } "git_blob_create_from_disk"
-			{ "OID", "&written_id>1", "Repository *", "repo", "const char *", "path" },
+	constructor "from_buffers" {
+		c_call { "GitError", "err" } "git_patch_from_buffers"
+			{ "Patch *", "&this>1",
+				"const char *", "old_buffer", "size_t", "old_len",
+				"const char *", "old_path",
+				"const char *", "new_buffer", "size_t", "new_len",
+				"const char *", "new_path",
+				"DiffOptions *", "opts" },
 	},
-	c_function "from_buffer" {
-		c_call { "GitError", "err" } "git_blob_create_from_buffer"
-			{ "OID", "&written_id>1", "Repository *", "repo",
-				"const char *", "buffer", "size_t", "#buffer" },
+	destructor {
+		c_method_call "void" "git_patch_free" {}
 	},
-	c_function "from_workdir" {
-		c_call { "GitError", "err" } "git_blob_create_from_workdir"
-			{ "OID", "&written_id>1", "Repository *", "repo", "const char *", "relative_path" },
+	method "num_hunks" {
+		c_method_call { "size_t", "count" } "git_patch_num_hunks" {},
 	},
-	method "rawcontent" {
-		c_method_call { "const char *", "buff" } "git_blob_rawcontent" {},
-		c_method_call { "size_t", "#buff" } "git_blob_rawsize" {},
+	method "num_lines" {
+		c_method_call { "size_t", "count" } "git_patch_num_lines_in_hunk"
+			{ "size_t", "hunk_idx" },
 	},
-	method "rawsize" {
-		c_method_call "int"  "git_blob_rawsize" {}
+	method "line_origin" {
+		var_in { "size_t", "hunk_idx" },
+		var_in { "size_t", "line_idx" },
+		var_out { "<any>", "origin" },
+		c_source [[
+	const git_diff_line *line;
+	int rc = git_patch_get_line_in_hunk(&line, ${this}, ${hunk_idx}, ${line_idx});
+	if (rc < 0) {
+		lua_pushnil(L);
+	} else {
+		char buf[2] = { line->origin, '\0' };
+		lua_pushstring(L, buf);
+	}
+]],
 	},
 }
-
