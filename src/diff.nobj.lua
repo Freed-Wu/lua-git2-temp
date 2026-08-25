@@ -22,6 +22,13 @@ object "Diff" {
 	c_source [[
 typedef git_diff Diff;
 ]],
+	constants {
+		FORMAT_PATCH = 1,     -- GIT_DIFF_FORMAT_PATCH: unified "git diff -u" output
+		FORMAT_PATCH_HEADER = 2,
+		FORMAT_RAW = 3,
+		FORMAT_NAME_ONLY = 4,
+		FORMAT_NAME_STATUS = 5,
+	},
 	constructor "index_to_workdir" {
 		c_call { "GitError", "err" } "git_diff_index_to_workdir" { "Diff *", "&this>1", "Repository *", "repo", "Index *", "index", "DiffOptions *", "opts" },
 	},
@@ -42,5 +49,26 @@ typedef git_diff Diff;
 	},
 	method "find_similar" {
 		c_method_call { "GitError", "err" } "git_diff_find_similar" { "DiffFindOptions *", "opts" },
+	},
+	-- Render the diff to a unified "git diff -u" string. Exactly mirrors what
+	-- `git diff` prints, including the `diff --git a/ b/`, `index <oid>..<oid>`,
+	-- `--- a/`, `+++ b/`, and `@@ ... @@` sections. On success returns the text,
+	-- on error returns nil.
+	method "to_buf" {
+		var_in { "unsigned int", "format" },
+		var_out { "<any>", "buf" },
+		c_source [[
+		git_buf out = GIT_BUF_INIT;
+		int rc = git_diff_to_buf(&out, ${this}, ${format});
+		if (rc < 0) {
+			if (out.ptr) git_buf_dispose(&out);
+			lua_pushnil(L);
+			${buf} = NULL;
+		} else {
+			lua_pushlstring(L, out.ptr ? out.ptr : "", out.size);
+			git_buf_dispose(&out);
+			${buf} = NULL;
+		}
+	]],
 	},
 }
