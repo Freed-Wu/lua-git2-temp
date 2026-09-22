@@ -48,6 +48,15 @@ BRANCH_REMOTE = 2,   -- GIT_BRANCH_REMOTE
 BRANCH_ALL   = 3,    -- GIT_BRANCH_ALL (LOCAL | REMOTE)
 },
 
+-- tree entry filemode types
+constants {
+FILEMODE_TREE            = 16384,  -- 0040000 octal = 16384 decimal (GIT_FILEMODE_TREE)
+FILEMODE_BLOB            = 33188,  -- 0100644 octal = 33188 decimal (GIT_FILEMODE_BLOB)
+FILEMODE_BLOB_EXECUTABLE = 33261,  -- 0100755 octal = 33261 decimal (GIT_FILEMODE_BLOB_EXECUTABLE)
+FILEMODE_LINK            = 40960,  -- 0120000 octal = 40960 decimal (GIT_FILEMODE_LINK)
+FILEMODE_COMMIT          = 57344,  -- 0160000 octal = 57344 decimal (GIT_FILEMODE_COMMIT)
+},
+
 c_function "version" {
 	var_out{ "<any>", "ver" },
 	c_source[[
@@ -97,6 +106,7 @@ subfiles {
 "src/commit.nobj.lua",
 "src/tree.nobj.lua",
 "src/tree_entry.nobj.lua",
+"src/tree_builder.nobj.lua",
 "src/tag.nobj.lua",
 "src/revwalk.nobj.lua",
 "src/reference.nobj.lua",

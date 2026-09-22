@@ -28,7 +28,6 @@ typedef git_commit Commit;
 			{ "Commit *", "&this", "Repository *", "repo", "OID", "&id" },
 	},
 	c_function "create" {
-		var_in{ "OID", "oid" },
 		var_in{ "Repository *", "repo" },
 		var_in{ "const char *", "update_ref" },
 		var_in{ "Signature *", "author" },
@@ -36,39 +35,48 @@ typedef git_commit Commit;
 		var_in{ "const char *", "message_encoding" },
 		var_in{ "const char *", "message" },
 		var_in{ "Tree *", "tree" },
-		var_in{ "Commit *", "parent" },
+		var_out{ "OID", "oid" },
 		var_out{"GitError", "err"},
-		c_source "pre" [[
+		c_source [[
 	int parent_count = 0;
+	int parent_start_idx = 8;
 #if LIBGIT2_VER_MAJOR == 1 && LIBGIT2_VER_MINOR == 8
 	git_commit **parents;
 #else
 	const git_commit **parents;
 #endif
 	int n;
-]],
-		c_source[[
-	/* count parents. */
-	parent_count = lua_gettop(L) - ${parent::idx} + 1;
-	/* valid parents.  The first parent commit is already validated. */
-	for(n = 1; n < parent_count; n++) {
-		obj_type_Commit_check(L, ${parent::idx} + n);
-	}
-	/* now it is safe to allocate oid array. */
-	parents = malloc(parent_count * sizeof(git_commit *));
 
-	/* copy oids from all parents into oid array. */
-	parents[0] = ${parent};
-	for(n = 1; n < parent_count; n++) {
-		parents[n] = obj_type_Commit_check(L, ${parent::idx} + n);
+	/* count parents from index 8 onwards */
+	parent_count = lua_gettop(L) - parent_start_idx + 1;
+	if (parent_count < 0) {
+		parent_count = 0;
+	}
+
+	/* validate all parent commits */
+	for(n = 0; n < parent_count; n++) {
+		obj_type_Commit_check(L, parent_start_idx + n);
+	}
+
+	/* allocate parent array */
+	if (parent_count > 0) {
+		parents = malloc(parent_count * sizeof(git_commit *));
+		for(n = 0; n < parent_count; n++) {
+			parents[n] = obj_type_Commit_check(L, parent_start_idx + n);
+		}
+	} else {
+		parents = NULL;
 	}
 
 	${err} = git_commit_create(&(${oid}), ${repo}, ${update_ref},
 		${author}, ${committer}, ${message_encoding}, ${message},
 		${tree}, parent_count, parents);
-	/* free parent oid array. */
-	free(parents);
-]]
+
+	/* free parent array */
+	if (parents != NULL) {
+		free(parents);
+	}
+]],
 	},
 	method "id" {
 		c_method_call { "OID", "*id" }  "git_commit_id" {}
@@ -102,4 +110,3 @@ typedef git_commit Commit;
 			{ "Commit *", "&parent>1", "Commit *", "this", "unsigned int", "n" }
 	},
 }
-
