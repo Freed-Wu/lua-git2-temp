@@ -101,6 +101,7 @@ subfiles {
 "src/revwalk.nobj.lua",
 "src/reference.nobj.lua",
 "src/branch.nobj.lua",
+"src/reflog.nobj.lua",
 },
 }
 
