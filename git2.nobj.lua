@@ -41,6 +41,13 @@ REF_HAS_PEEL = 8,
 REF_LISTALL  = 0x07, -- GIT_REF_OID|GIT_REF_SYMBOLIC|GIT_REF_PACKED,
 },
 
+-- branch types
+constants {
+BRANCH_LOCAL = 1,    -- GIT_BRANCH_LOCAL
+BRANCH_REMOTE = 2,   -- GIT_BRANCH_REMOTE
+BRANCH_ALL   = 3,    -- GIT_BRANCH_ALL (LOCAL | REMOTE)
+},
+
 c_function "version" {
 	var_out{ "<any>", "ver" },
 	c_source[[
@@ -93,6 +100,7 @@ subfiles {
 "src/tag.nobj.lua",
 "src/revwalk.nobj.lua",
 "src/reference.nobj.lua",
+"src/branch.nobj.lua",
 },
 }
 
