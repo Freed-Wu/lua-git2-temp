@@ -102,6 +102,7 @@ subfiles {
 "src/reference.nobj.lua",
 "src/branch.nobj.lua",
 "src/reflog.nobj.lua",
+"src/remote.nobj.lua",
 },
 }
 
