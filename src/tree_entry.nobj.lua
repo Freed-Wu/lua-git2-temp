@@ -38,6 +38,10 @@ typedef git_tree_entry TreeEntry;
 		var_out{"OID", "id"},
 		c_source "${id} = *(git_tree_entry_id(${this}));"
 	},
+	method "type" {
+	    var_out{"int", "type"},
+	    c_source "${type} = git_tree_entry_type(${this});"
+	},
 	method "object" {
 		c_call "GitError" "git_tree_entry_to_object"
 			{ "!Object *", "&obj>1", "Repository *", "repo", "TreeEntry *", "this" }
